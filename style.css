@@ -1,0 +1,618 @@
+
+/* =========================
+   Libro.0 – Stile Pascoli
+   Layout: top bar + sidebar capitoli + pagina di libro centrale + margine attivo
+   ========================= */
+
+/* Reset di base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #f3ebe0;
+    color: #2b2530;
+    line-height: 1.6;
+}
+
+/* -------------------------
+   Top bar
+   ------------------------- */
+
+.top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 1.8rem;
+    background: #3b2559;
+    color: #fdfdfd;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.logo-main {
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+
+.logo-sub {
+    font-size: 0.8rem;
+    opacity: 0.85;
+}
+
+/* Selettore temi A–E */
+
+.theme-switcher {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+
+.theme-switcher button {
+    border: none;
+    border-radius: 999px;
+    padding: 0.25rem 0.55rem;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: rgba(255,255,255,0.15);
+    color: #fdfdfd;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.theme-switcher button:hover {
+    background: rgba(255,255,255,0.32);
+    transform: translateY(-1px);
+}
+
+/* Strumenti (Mappe, Lavagna, Archivio) */
+
+.tools-nav {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.tool-btn {
+    border-radius: 999px;
+    border: none;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+    background: rgba(255,255,255,0.1);
+    color: #fdfdfd;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.tool-btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-1px);
+}
+
+/* -------------------------
+   Layout lettura a tre colonne
+   ------------------------- */
+
+.reading-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr) 290px;
+    gap: 1.6rem;
+    padding: 1.6rem 1.8rem 2rem;
+}
+
+/* Sidebar capitoli */
+
+.sidebar {
+    background: #f5e5cf;
+    border-radius: 18px;
+    padding: 1.2rem 1rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.sidebar h2 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #7b5c3e;
+    margin-bottom: 0.75rem;
+}
+
+.chapter-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.9rem;
+}
+
+.chapter-link {
+    display: block;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #3b2a1c;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+
+.chapter-link:hover {
+    background: rgba(255,255,255,0.9);
+}
+
+.chapter-link.active {
+    background: #f6cfa0;
+    color: #2b1d12;
+    font-weight: 600;
+}
+
+/* -------------------------
+   Pagina di lettura centrale
+   ------------------------- */
+
+.reading-container {
+    display: flex;
+    justify-content: center;
+}
+
+.book-page-wrapper {
+    width: 100%;
+    max-width: 820px;
+}
+
+.section-header {
+    margin-bottom: 0.9rem;
+}
+
+.section-header h1 {
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.2rem;
+}
+
+.section-subtitle {
+    font-size: 0.9rem;
+    color: #7b6a58;
+}
+
+/* Card pagina di libro */
+
+.book-page-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    gap: 1.4rem;
+    background: #fdf9f3;
+    border-radius: 22px;
+    padding: 1.6rem 1.8rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+/* Colonna testo */
+
+.book-text-column {
+    position: relative;
+}
+
+.lesson-text p {
+    margin-bottom: 0.6rem;
+    font-size: 0.98rem;
+}
+
+.lesson-text p:first-of-type {
+    margin-top: 0;
+}
+
+.lesson-text h2 {
+    font-size: 1.05rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.lesson-text ul {
+    padding-left: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.lesson-text li {
+    margin-bottom: 0.18rem;
+}
+
+/* Evidenziazioni */
+
+.lesson-text .highlight {
+    background: #ffe9a7;
+    padding: 0 0.05em;
+    border-radius: 0.15em;
+}
+
+/* Navigazione sezione */
+
+.section-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.section-nav a {
+    text-decoration: none;
+    color: #5b3c8a;
+}
+
+.section-nav a:hover {
+    text-decoration: underline;
+}
+
+/* Colonna schema dentro la pagina */
+
+.book-schema-column {
+    align-self: flex-start;
+}
+
+.schema-card {
+    background: #fff9f1;
+    border-radius: 18px;
+    padding: 0.8rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    border: 1px solid rgba(255,255,255,0.9);
+    font-size: 0.86rem;
+    color: #5c4b3b;
+}
+
+.schema-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin-bottom: 0.4rem;
+    cursor: pointer;
+}
+
+/* Gallerie aggiuntive (forma, simbolismo, ecc.) */
+
+.lesson-gallery {
+    margin-top: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem;
+}
+
+.concept-figure {
+    background: #fffdf9;
+    border-radius: 16px;
+    padding: 0.6rem;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+    text-align: center;
+    font-size: 0.82rem;
+    color: #5a4a3c;
+}
+
+.concept-figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 0.3rem;
+}
+
+/* -------------------------
+   Margine attivo a destra
+   ------------------------- */
+
+.margin-column {
+    background: #f7e7d4;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    font-size: 0.88rem;
+}
+
+.margin-column h2 {
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.25rem;
+    color: #7a5532;
+}
+
+.current-section-label {
+    font-size: 0.8rem;
+    color: #7b6a58;
+    margin-bottom: 0.4rem;
+}
+
+.margin-block {
+    background: rgba(255,255,255,0.8);
+    border-radius: 14px;
+    padding: 0.7rem 0.8rem;
+}
+
+.margin-block h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+}
+
+.margin-block p {
+    font-size: 0.8rem;
+    margin-bottom: 0.4rem;
+}
+
+.margin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: #f0c18b;
+    color: #3a2615;
+    margin-right: 0.3rem;
+    margin-bottom: 0.25rem;
+}
+
+.margin-btn-secondary {
+    background: #e9ddcf;
+}
+
+.margin-btn:hover {
+    filter: brightness(1.05);
+}
+
+/* Nota rapida */
+
+#note-input {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #e0ccb4;
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8rem;
+    resize: vertical;
+    min-height: 70px;
+    margin-bottom: 0.4rem;
+}
+
+.note-list {
+    list-style: none;
+    margin-top: 0.3rem;
+    max-height: 160px;
+    overflow-y: auto;
+}
+
+.note-list li {
+    background: #fff7ec;
+    border-radius: 10px;
+    padding: 0.25rem 0.4rem;
+    font-size: 0.78rem;
+    margin-bottom: 0.2rem;
+}
+
+/* Chips "Invia a..." */
+
+.margin-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.margin-chip {
+    border-radius: 999px;
+    border: none;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.78rem;
+    cursor: pointer;
+    background: #f0c18b;
+    color: #3a2615;
+}
+
+.margin-chip:hover {
+    filter: brightness(1.07);
+}
+
+.small {
+    font-size: 0.75rem;
+    margin-top: 0.35rem;
+    color: #7d6b5a;
+}
+
+/* -------------------------
+   Modale generale (zoom immagini / strumenti)
+   ------------------------- */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-overlay[hidden] {
+    display: none;
+}
+
+.modal {
+    background: #fdf9f3;
+    border-radius: 18px;
+    padding: 0.8rem 0.9rem 0.9rem;
+    max-width: 900px;
+    width: 92vw;
+    max-height: 90vh;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    position: relative;
+    overflow: auto;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.5rem;
+    border: none;
+    background: transparent;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.modal-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image-wrapper img {
+    max-width: 100%;
+    max-height: 82vh;
+    border-radius: 16px;
+}
+
+/* -------------------------
+   Pagina index (intro)
+   ------------------------- */
+
+.intro-main {
+    padding: 1.8rem 1.8rem 2.2rem;
+}
+
+.intro-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+    gap: 1.8rem;
+    align-items: flex-start;
+}
+
+.intro-text h1 {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+}
+
+.intro-text p {
+    margin-bottom: 0.6rem;
+    font-size: 0.98rem;
+}
+
+.intro-text h2 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.intro-list {
+    margin-top: 0.2rem;
+}
+
+.intro-list li {
+    margin-bottom: 0.25rem;
+}
+
+.intro-list a {
+    color: #5b3c8a;
+    text-decoration: none;
+}
+
+.intro-list a:hover {
+    text-decoration: underline;
+}
+
+.intro-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* -------------------------
+   Temi A–E (solo accenti, niente stravolgimento)
+   ------------------------- */
+
+body.theme-A {
+    background: #f3ebe0;
+}
+
+body.theme-B {
+    background: #f6efe3;
+}
+
+body.theme-C {
+    background: #edf0ff;
+}
+
+body.theme-D {
+    background: #1e1725;
+    color: #f5eee4;
+}
+
+body.theme-D .sidebar,
+body.theme-D .margin-column,
+body.theme-D .book-page-grid,
+body.theme-D .modal {
+    background: #2a2035;
+    color: #f5eee4;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.7);
+}
+
+body.theme-E {
+    background: radial-gradient(circle at top, #f7f0ff 0, #f3ebe0 60%, #f2e4ff 100%);
+}
+
+/* -------------------------
+   Responsivo
+   ------------------------- */
+
+@media (max-width: 1024px) {
+    .reading-layout {
+        grid-template-columns: 220px minmax(0, 1fr);
+    }
+
+    .margin-column {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+
+    .reading-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .sidebar {
+        order: 1;
+    }
+
+    .reading-container {
+        order: 2;
+    }
+
+    .margin-column {
+        order: 3;
+        display: block;
+        margin-top: 0.5rem;
+    }
+
+    .intro-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
