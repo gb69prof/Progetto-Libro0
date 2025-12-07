@@ -5,8 +5,31 @@
   <title>Libro.0 – Pascoli</title>
   <link rel="stylesheet" href="style.css" />
   <script defer src="script-index.js"></script>
+
+  <style>
+    /* Centramento immagine nel modale */
+    .modal-center-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-center-wrapper img {
+      max-width: 75vw;
+      max-height: 75vh;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 18px rgba(0,0,0,0.4);
+    }
+  </style>
 </head>
+
 <body data-page="index">
+
   <header class="top-bar">
     <div class="logo-area">
       <span class="logo-main">Libro.0</span>
@@ -30,18 +53,21 @@
 
   <main class="intro-main">
     <section class="intro-hero">
+
+      <!-- Testo -->
       <div class="intro-text">
         <h1>Giovanni Pascoli nel Libro.0</h1>
+
         <p>
-          Questo ambiente non è una semplice scheda di letteratura, ma una
-          stanza del Libro.0: qui la lezione scritta convive con schemi,
-          immagini, video e strumenti che trasformano lo studente in autore
-          attivo del proprio studio.
+          Questo ambiente non è una semplice scheda di letteratura, ma una stanza del Libro.0:
+          qui la lezione scritta convive con schemi, immagini, video e strumenti che trasformano
+          lo studente in autore attivo del proprio studio.
         </p>
+
         <p>
-          Puoi leggere i testi, evidenziare, prendere appunti, inviare
-          concetti alle mappe, alla timeline o alla lavagna virtuale.
-          Ogni gesto lascia traccia in una memoria lunga, che resta tua.
+          Puoi leggere i testi, evidenziare, prendere appunti, inviare concetti alle mappe,
+          alla timeline o alla lavagna virtuale. Ogni gesto lascia traccia in una memoria lunga,
+          che resta tua.
         </p>
 
         <h2>Capitoli di Pascoli</h2>
@@ -54,40 +80,34 @@
         </ol>
       </div>
 
+      <!-- Media -->
       <div class="intro-media">
-        <!-- Copertina + video nello stesso identico spazio -->
+
+        <!-- Copertina + video -->
         <figure class="video-cover-wrapper" style="max-width:260px; margin:0 auto;">
-          <!-- Immagine iniziale (cliccabile) -->
           <div id="cover-wrapper">
             <img
               id="pascoli-cover"
-              class="pascoli-cover-img"
               src="assets/pascoli_video.png"
               alt="Introduzione a Pascoli"
               style="width:100%; height:auto; cursor:pointer; display:block;"
             />
           </div>
 
-          <!-- Video che sostituisce l'immagine mantenendo posizione e dimensioni -->
           <div id="video-container" hidden>
             <div
-              class="video-frame-wrapper"
               style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;"
             >
               <iframe
                 src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
-                title="HeyGen video player"
                 frameborder="0"
                 allow="encrypted-media; fullscreen;"
                 allowfullscreen
                 style="position:absolute; top:0; left:0; width:100%; height:100%;"
               ></iframe>
             </div>
-            <button
-              id="btn-back-to-cover"
-              class="back-btn"
-              style="margin-top:0.5rem;"
-            >
+
+            <button id="btn-back-to-cover" class="back-btn" style="margin-top:0.5rem;">
               ⏹ Torna all'immagine
             </button>
           </div>
@@ -97,84 +117,84 @@
           </figcaption>
         </figure>
 
-        <!-- Seconda immagine, ridotta e zoomabile a pagina intera -->
+        <!-- Seconda immagine con funzione zoom centrato -->
         <figure class="intro-image">
           <img
             id="pascoli-intro"
             src="assets/Pascoli-intro.png"
             alt="Giovanni Pascoli – immagine introduttiva"
-            style="max-width:260px; width:100%; height:auto; display:block; margin:1.5rem auto 0.5rem auto; cursor:pointer;"
+            style="max-width:260px; width:100%; height:auto; margin:1.5rem auto 0.5rem auto; cursor:pointer; display:block;"
           />
           <figcaption style="text-align:center;">
             Giovanni Pascoli, tra biografia, visione del mondo e simboli.
           </figcaption>
         </figure>
+
       </div>
     </section>
   </main>
 
-  <!-- Overlay modale generale, riutilizzabile anche per ingrandire immagini -->
-  <div id="modal-overlay" class="modal-overlay" hidden>
-    <div class="modal">
-      <button class="modal-close" id="modal-close">✕</button>
-      <div id="modal-content"></div>
+  <!-- MODALE GENERALE -->
+  <div id="modal-overlay" class="modal-overlay" hidden
+       style="position:fixed; inset:0; background:rgba(0,0,0,0.8); z-index:9999;">
+    <div class="modal" style="width:100%; height:100%; position:relative;">
+      <button id="modal-close"
+              style="position:absolute; top:20px; right:20px; font-size:1.8rem; cursor:pointer;">
+        ✕
+      </button>
+      <div id="modal-content" style="width:100%; height:100%;"></div>
     </div>
   </div>
 
-  <!-- Script per zoom a schermo intero della seconda immagine -->
+  <!-- SCRIPT PER ZOOM IMMAGINE -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', () => {
+
       const introImg = document.getElementById('pascoli-intro');
       const modalOverlay = document.getElementById('modal-overlay');
       const modalContent = document.getElementById('modal-content');
       const modalClose = document.getElementById('modal-close');
 
-      if (introImg && modalOverlay && modalContent) {
-        introImg.addEventListener('click', () => {
-          // Pulisci contenuto precedente
+      introImg.addEventListener('click', () => {
+        modalContent.innerHTML = '';
+
+        // wrapper flessibile che centra l'immagine
+        const wrapper = document.createElement('div');
+        wrapper.className = 'modal-center-wrapper';
+
+        // immagine ingrandita
+        const bigImg = introImg.cloneNode();
+        bigImg.style.cursor = "pointer";
+
+        wrapper.appendChild(bigImg);
+        modalContent.appendChild(wrapper);
+        modalOverlay.hidden = false;
+
+        // Chiudi cliccando sull'immagine ingrandita
+        bigImg.addEventListener('click', () => {
+          modalOverlay.hidden = true;
           modalContent.innerHTML = '';
+        });
 
-          // Clona l'immagine e la adatta a schermo
-          const bigImg = introImg.cloneNode();
-          bigImg.removeAttribute('style');
-          bigImg.style.maxWidth = '90vw';
-          bigImg.style.maxHeight = '90vh';
-          bigImg.style.width = 'auto';
-          bigImg.style.height = 'auto';
-          bigImg.style.display = 'block';
-          bigImg.style.margin = '0 auto';
-          bigImg.style.cursor = 'pointer';
-
-          modalContent.appendChild(bigImg);
-          modalOverlay.hidden = false;
-
-          const closeModal = () => {
+        // Chiudi cliccando fuori
+        modalOverlay.addEventListener('click', (e) => {
+          if (e.target === modalOverlay) {
             modalOverlay.hidden = true;
             modalContent.innerHTML = '';
-          };
+          }
+        }, { once: true });
+      });
 
-          // Clic sull'immagine ingrandita: torna alla dimensione originale
-          bigImg.addEventListener('click', closeModal);
+      // Pulsante X
+      modalClose.addEventListener('click', () => {
+        modalOverlay.hidden = true;
+        modalContent.innerHTML = '';
+      });
 
-          // Clic sullo sfondo scuro chiude il modale
-          modalOverlay.addEventListener(
-            'click',
-            (e) => {
-              if (e.target === modalOverlay) closeModal();
-            },
-            { once: true }
-          );
-        });
-      }
-
-      if (modalClose) {
-        modalClose.addEventListener('click', () => {
-          modalOverlay.hidden = true;
-          if (modalContent) modalContent.innerHTML = '';
-        });
-      }
     });
   </script>
+
 </body>
 </html>
+
 
