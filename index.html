@@ -97,12 +97,13 @@
           </figcaption>
         </figure>
 
-        <!-- Seconda immagine, ridotta per stare tutta a schermo -->
+        <!-- Seconda immagine, ridotta e zoomabile a pagina intera -->
         <figure class="intro-image">
           <img
+            id="pascoli-intro"
             src="assets/Pascoli-intro.png"
             alt="Giovanni Pascoli – immagine introduttiva"
-            style="max-width:260px; width:100%; height:auto; display:block; margin:1.5rem auto 0.5rem auto;"
+            style="max-width:260px; width:100%; height:auto; display:block; margin:1.5rem auto 0.5rem auto; cursor:pointer;"
           />
           <figcaption style="text-align:center;">
             Giovanni Pascoli, tra biografia, visione del mondo e simboli.
@@ -119,5 +120,61 @@
       <div id="modal-content"></div>
     </div>
   </div>
+
+  <!-- Script per zoom a schermo intero della seconda immagine -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const introImg = document.getElementById('pascoli-intro');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalContent = document.getElementById('modal-content');
+      const modalClose = document.getElementById('modal-close');
+
+      if (introImg && modalOverlay && modalContent) {
+        introImg.addEventListener('click', () => {
+          // Pulisci contenuto precedente
+          modalContent.innerHTML = '';
+
+          // Clona l'immagine e la adatta a schermo
+          const bigImg = introImg.cloneNode();
+          bigImg.removeAttribute('style');
+          bigImg.style.maxWidth = '90vw';
+          bigImg.style.maxHeight = '90vh';
+          bigImg.style.width = 'auto';
+          bigImg.style.height = 'auto';
+          bigImg.style.display = 'block';
+          bigImg.style.margin = '0 auto';
+          bigImg.style.cursor = 'pointer';
+
+          modalContent.appendChild(bigImg);
+          modalOverlay.hidden = false;
+
+          const closeModal = () => {
+            modalOverlay.hidden = true;
+            modalContent.innerHTML = '';
+          };
+
+          // Clic sull'immagine ingrandita: torna alla dimensione originale
+          bigImg.addEventListener('click', closeModal);
+
+          // Clic sullo sfondo scuro chiude il modale
+          modalOverlay.addEventListener(
+            'click',
+            (e) => {
+              if (e.target === modalOverlay) closeModal();
+            },
+            { once: true }
+          );
+        });
+      }
+
+      if (modalClose) {
+        modalClose.addEventListener('click', () => {
+          modalOverlay.hidden = true;
+          if (modalContent) modalContent.innerHTML = '';
+        });
+      }
+    });
+  </script>
 </body>
 </html>
+
