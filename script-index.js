@@ -1,69 +1,65 @@
+// script-index.js
+// Logica specifica della pagina index (video copertina)
+
 document.addEventListener("DOMContentLoaded", () => {
-  const cover = document.getElementById("pascoli-cover");
-  const videoBox = document.getElementById("video-container");
-  const backBtn = document.getElementById("btn-back-to-cover");
-
-  if (cover && videoBox) {
-    cover.addEventListener("click", () => {
-      cover.parentElement.hidden = true;
-      videoBox.hidden = false;
-    });
-  }
-
-  if (backBtn && cover) {
-    backBtn.addEventListener("click", () => {
-      videoBox.hidden = true;
-      cover.parentElement.hidden = false;
-    });
-  }
-
-  // Theme handling (shared logic)
-  const themeButtons = document.querySelectorAll(".theme-switcher button");
-  const savedTheme = localStorage.getItem("libro0_theme");
-  if (savedTheme) {
-    document.body.classList.add(`theme-${savedTheme}`);
-  } else {
-    document.body.classList.add("theme-A");
-  }
-
-  themeButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const theme = btn.dataset.theme;
-      document.body.classList.remove("theme-A", "theme-B", "theme-C", "theme-D", "theme-E");
-      document.body.classList.add(`theme-${theme}`);
-      localStorage.setItem("libro0_theme", theme);
-    });
-  });
-
-  // Placeholder handlers for tools (Mappe, Lavagna, Archivio)
-  const toolButtons = document.querySelectorAll(".tool-btn");
-  const modalOverlay = document.getElementById("modal-overlay");
-  const modalContent = document.getElementById("modal-content");
-  const modalClose = document.getElementById("modal-close");
-
-  function openModal(title, body) {
-    if (!modalOverlay || !modalContent) return;
-    modalContent.innerHTML = `<h2>${title}</h2><p>${body}</p>`;
-    modalOverlay.hidden = false;
-  }
-
-  toolButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const tool = btn.dataset.tool;
-      if (tool === "mappe") {
-        openModal("Mappe concettuali", "Qui potrai collegare gli appunti a una mappa concettuale interna al Libro.0.");
-      } else if (tool === "lavagna") {
-        openModal("Lavagna", "Qui comparirà una lavagna digitale per schemi veloci e disegni a mano.");
-      } else if (tool === "archivio") {
-        openModal("Archivio personale", "Qui potrai ritrovare note, evidenziazioni e collegamenti creati nelle varie sezioni.");
-      }
-    });
-  });
-
-  if (modalClose && modalOverlay) {
-    modalClose.addEventListener("click", () => (modalOverlay.hidden = true));
-    modalOverlay.addEventListener("click", (e) => {
-      if (e.target === modalOverlay) modalOverlay.hidden = true;
-    });
-  }
+  initThemeIndex();
+  initCoverVideo();
 });
+
+/* Usa la stessa chiave del tema di script-common */
+const THEME_KEY = "libro0-theme";
+
+function applyThemeIndex(theme) {
+  const allowed = ["A", "B", "C", "D", "E"];
+  if (!allowed.includes(theme)) return;
+  document.body.classList.remove(
+    "theme-A",
+    "theme-B",
+    "theme-C",
+    "theme-D",
+    "theme-E"
+  );
+  document.body.classList.add(`theme-${theme}`);
+}
+
+function initThemeIndex() {
+  let theme = localStorage.getItem(THEME_KEY) || "A";
+  applyThemeIndex(theme);
+  localStorage.setItem(THEME_KEY, theme);
+
+  const buttons = document.querySelectorAll(".theme-switcher button[data-theme]");
+  buttons.forEach((btn) => {
+    const t = btn.getAttribute("data-theme");
+    if (t === theme) btn.style.outline = "2px solid #fff";
+
+    btn.addEventListener("click", () => {
+      const newTheme = btn.getAttribute("data-theme");
+      if (!newTheme) return;
+      applyThemeIndex(newTheme);
+      localStorage.setItem(THEME_KEY, newTheme);
+      buttons.forEach((b) => (b.style.outline = "none"));
+      btn.style.outline = "2px solid #fff";
+    });
+  });
+}
+
+function initCoverVideo() {
+  const coverImg = document.getElementById("pascoli-cover");
+  const coverWrapper = document.getElementById("cover-wrapper");
+  const videoContainer = document.getElementById("video-container");
+  const backBtn = document.getElementById("btn-back-to-cover");
+  if (!coverImg || !coverWrapper || !videoContainer || !backBtn) return;
+
+  const showVideo = () => {
+    coverWrapper.hidden = true;
+    videoContainer.hidden = false;
+  };
+
+  const showCover = () => {
+    coverWrapper.hidden = false;
+    videoContainer.hidden = true;
+  };
+
+  coverImg.addEventListener("click", showVideo);
+  backBtn.addEventListener("click", showCover);
+}
