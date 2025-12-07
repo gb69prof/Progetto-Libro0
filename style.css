@@ -1,543 +1,519 @@
-/* ====== Stili generali ====== */
+/* ====== Reset leggero ====== */
 *,
 *::before,
-*::after {{
+*::after {
   box-sizing: border-box;
-}}
+}
 
-:root {{
-  --bg: #f6f1e8;
-  --bg-alt: #ffffff;
-  --text: #222222;
-  --accent: #d2691e;
-  --accent-soft: #ffe3c4;
-  --border-soft: #e0d2c2;
-  --sidebar-bg: #f0e5d6;
-  --margin-bg: #faf3e9;
-  --shadow-soft: 0 8px 20px rgba(0, 0, 0, 0.06);
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --radius-sm: 8px;
-  --transition-fast: 0.18s ease-out;
-  --font-serif: "Georgia", "Times New Roman", serif;
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}}
-
-body {{
+body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-sans);
-  background: var(--bg);
-  color: var(--text);
-}}
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
 
-/* ====== Header ====== */
-.top-bar {{
+/* ====== Temi A–E: variabili ====== */
+:root {
+  --bg-body: #f2ede4;
+  --bg-page: #fffdf8;
+  --bg-sidebar: #f3e6d7;
+  --bg-margin: #f9f2e7;
+  --text-main: #1f1309;
+  --accent: #c5651b;
+  --accent-soft: #f6cfaa;
+  --border-soft: #e0d2c2;
+  --page-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Tema A – Editoriale crema */
+body.theme-A {
+  --bg-body: #f2ede4;
+  --bg-page: #fffdf8;
+  --bg-sidebar: #f3e6d7;
+  --bg-margin: #f9f2e7;
+  --text-main: #1f1309;
+  --accent: #c5651b;
+  --accent-soft: #f6cfaa;
+  --border-soft: #e0d2c2;
+}
+
+/* Tema B – Cartaceo quaderno */
+body.theme-B {
+  --bg-body: #faf7ee;
+  --bg-page: #fff;
+  --bg-sidebar: #fdf8f0;
+  --bg-margin: #fffaf4;
+  --text-main: #222222;
+  --accent: #b03a2e;
+  --accent-soft: #f5b7b1;
+  --border-soft: #d5cec0;
+}
+
+/* Tema C – Tech */
+body.theme-C {
+  --bg-body: #021018;
+  --bg-page: #0d1f2b;
+  --bg-sidebar: #071723;
+  --bg-margin: #081b28;
+  --text-main: #f7f9fc;
+  --accent: #7ea6ff;
+  --accent-soft: #365fbe;
+  --border-soft: #1f3042;
+}
+
+/* Tema D – Notte */
+body.theme-D {
+  --bg-body: #050608;
+  --bg-page: #151820;
+  --bg-sidebar: #191c26;
+  --bg-margin: #181b24;
+  --text-main: #f5f5f5;
+  --accent: #ffb84d;
+  --accent-soft: #e5983e;
+  --border-soft: #2a303e;
+}
+
+/* Tema E – Ibrido chiaro/tech */
+body.theme-E {
+  --bg-body: #edf1fa;
+  --bg-page: #ffffff;
+  --bg-sidebar: #e2e7fb;
+  --bg-margin: #eef2ff;
+  --text-main: #141b2c;
+  --accent: #4f7cff;
+  --accent-soft: #c3d0ff;
+  --border-soft: #c9d2f2;
+}
+
+/* ====== Layout generale ====== */
+
+body {
+  background: var(--bg-body);
+  color: var(--text-main);
+}
+
+/* Header */
+
+.top-bar {
   position: sticky;
   top: 0;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.6rem 1.8rem;
-  background: rgba(246, 241, 232, 0.95);
+  padding: 0.6rem 1.7rem;
+  background: rgba(242, 237, 228, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-soft);
-}}
+}
 
-.logo-area {{
+body.theme-C .top-bar,
+body.theme-D .top-bar {
+  background: rgba(6, 16, 24, 0.9);
+}
+
+.logo-area {
   display: flex;
   flex-direction: column;
-}}
+}
 
-.logo-main {{
+.logo-main {
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-size: 1.05rem;
+  font-size: 0.98rem;
   text-decoration: none;
-  color: var(--text);
-}}
+  color: var(--text-main);
+}
 
-.logo-sub {{
-  font-size: 0.8rem;
+.logo-sub {
+  font-size: 0.78rem;
   opacity: 0.8;
-}}
+}
 
-.theme-switcher {{
+.theme-switcher {
   display: flex;
   gap: 0.25rem;
-}}
+}
 
-.theme-switcher button {{
+.theme-switcher button {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 999px;
   border: 1px solid var(--border-soft);
-  background: var(--bg-alt);
+  background: #ffffff;
   font-size: 0.8rem;
   cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-}}
+  transition: background 0.15s ease-out, transform 0.15s ease-out;
+}
 
-.theme-switcher button:hover {{
+.theme-switcher button:hover {
   transform: translateY(-1px);
   background: var(--accent-soft);
-}}
+}
 
-.tools-nav {{
+.tools-nav {
   display: flex;
   gap: 0.4rem;
-}}
+}
 
-.tool-btn {{
+.tool-btn {
   border-radius: 999px;
   border: 1px solid var(--border-soft);
-  background: var(--bg-alt);
+  background: #ffffff;
   padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: background var(--transition-fast), transform var(--transition-fast);
-}}
+}
 
-.tool-btn:hover {{
+.tool-btn:hover {
   background: var(--accent-soft);
-  transform: translateY(-1px);
-}}
+}
 
-/* ====== Intro layout (index) ====== */
-.intro-main {{
-  max-width: 1200px;
-  margin: 1.8rem auto 2.4rem;
-  padding: 0 1.2rem;
-}}
+/* ====== Layout lettura a tre colonne ====== */
 
-.intro-hero {{
+.reading-layout {
+  max-width: 1380px;
+  margin: 1.4rem auto 2.2rem;
+  padding: 0 1.3rem;
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-  gap: 1.8rem;
-  align-items: flex-start;
-}}
-
-.intro-text h1 {{
-  font-family: var(--font-serif);
-  font-size: 2.1rem;
-  margin-top: 0;
-  margin-bottom: 0.6rem;
-}}
-
-.intro-text p {{
-  line-height: 1.6;
-  margin-top: 0.4rem;
-}}
-
-.chapter-list {{
-  padding-left: 1rem;
-}}
-
-.chapter-list li {{
-  margin: 0.15rem 0;
-}}
-
-.chapter-list a {{
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 1px;
-  transition: border-color var(--transition-fast), color var(--transition-fast);
-}}
-
-.chapter-list a:hover {{
-  color: #b35413;
-  border-color: #f0b889;
-}}
-
-.intro-list {{
-  margin-top: 0.7rem;
-}}
-
-.intro-media {{
-  background: var(--bg-alt);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-  box-shadow: var(--shadow-soft);
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}}
-
-.video-cover-wrapper {{
-  margin: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  cursor: pointer;
-  border: 1px solid var(--border-soft);
-}}
-
-.video-cover-wrapper img {{
-  display: block;
-  width: 100%;
-  height: auto;
-}}
-
-.video-cover-wrapper figcaption {{
-  padding: 0.4rem 0.6rem;
-  font-size: 0.85rem;
-  background: #f8f4ee;
-}}
-
-.video-container {{
-  border-radius: var(--radius-md);
-  background: #000;
-  padding: 0.6rem;
-  box-shadow: var(--shadow-soft);
-}}
-
-.responsive-iframe {{
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%; /* 16:9 */
-  overflow: hidden;
-  border-radius: var(--radius-md);
-  background: #000;
-}}
-
-.responsive-iframe iframe {{
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}}
-
-.back-btn {{
-  margin-top: 0.5rem;
-  width: 100%;
-  border-radius: var(--radius-sm);
-  border: none;
-  padding: 0.45rem 0.8rem;
-  font-size: 0.85rem;
-  cursor: pointer;
-  background: #fbe4d0;
-  color: #5a3415;
-}}
-
-.back-btn:hover {{
-  background: #f6cfaa;
-}}
-
-.intro-image {{
-  margin: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border-soft);
-}}
-
-.intro-image img {{
-  width: 100%;
-  display: block;
-}}
-
-.intro-image figcaption {{
-  padding: 0.35rem 0.6rem;
-  font-size: 0.8rem;
-  background: #f8f4ee;
-}}
-
-/* ====== Layout lettura (sezioni) ====== */
-.reading-layout {{
-  max-width: 1400px;
-  margin: 1.6rem auto 2.4rem;
-  padding: 0 1.2rem;
-  display: grid;
-  grid-template-columns: 230px minmax(0, 2.2fr) minmax(260px, 0.9fr);
+  grid-template-columns: 230px minmax(0, 2.4fr) minmax(260px, 0.9fr);
   gap: 1.2rem;
   align-items: flex-start;
-}}
+}
 
-.sidebar {{
-  background: var(--sidebar-bg);
-  border-radius: var(--radius-lg);
-  padding: 0.9rem 0.9rem 0.9rem 1rem;
-  box-shadow: var(--shadow-soft);
+/* Sidebar capitoli */
+
+.sidebar {
+  background: var(--bg-sidebar);
+  border-radius: 18px;
+  padding: 0.9rem 1rem;
+  box-shadow: var(--page-shadow);
   position: sticky;
   top: 4.1rem;
-}}
+  font-size: 0.9rem;
+}
 
-.sidebar h2 {{
-  margin-top: 0;
+.sidebar h2 {
+  margin: 0 0 0.4rem;
   font-size: 1rem;
-  margin-bottom: 0.4rem;
-}}
+}
 
-.chapter-link {{
-  text-decoration: none;
-  color: var(--text);
-  font-size: 0.9rem;
-  padding: 0.1rem 0.2rem;
-  border-radius: 4px;
-  display: inline-block;
-}}
-
-.chapter-link.active {{
-  background: var(--accent-soft);
-  color: #7a3408;
-  font-weight: 600;
-}}
-
-.reading-container {{
-  background: var(--bg-alt);
-  border-radius: var(--radius-lg);
-  padding: 1.2rem 1.4rem 1.4rem;
-  box-shadow: var(--shadow-soft);
-}}
-
-.section-header h1 {{
-  font-family: var(--font-serif);
-  margin-top: 0;
-  margin-bottom: 0.2rem;
-}}
-
-.section-subtitle {{
-  margin-top: 0;
-  font-size: 0.9rem;
-  color: #5b4a35;
-}}
-
-.reading-column {{
-  max-width: 720px;
-}}
-
-.hero-figure {{
-  margin: 1rem 0 0.8rem;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 1px solid var(--border-soft);
-}}
-
-.hero-figure img {{
-  width: 100%;
-  display: block;
-}}
-
-.hero-figure figcaption {{
-  padding: 0.4rem 0.6rem;
-  background: #f8f4ee;
-  font-size: 0.8rem;
-}}
-
-.lesson-text {{
-  margin-top: 0.8rem;
-  line-height: 1.7;
-  font-size: 0.98rem;
-}}
-
-.placeholder-text {{
-  font-style: italic;
-  color: #7a6a57;
-}}
-
-.lesson-gallery {{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 0.9rem;
-  margin-top: 1.1rem;
-}}
-
-.concept-figure {{
+.chapter-list {
+  padding-left: 1rem;
   margin: 0;
-  border-radius: var(--radius-md);
-  overflow: hidden;
+}
+
+.chapter-list li {
+  margin: 0.15rem 0;
+}
+
+.chapter-link {
+  text-decoration: none;
+  color: var(--text-main);
+  padding: 0.08rem 0.25rem;
+  border-radius: 6px;
+}
+
+.chapter-link.active {
+  background: var(--accent-soft);
+  color: #411f07;
+  font-weight: 600;
+}
+
+/* ====== Pagina di libro (colonna centrale) ====== */
+
+.reading-container {
+  display: flex;
+  justify-content: center;
+}
+
+.book-page-wrapper {
+  background: var(--bg-page);
+  border-radius: 22px;
+  box-shadow: var(--page-shadow);
+  padding: 1.6rem 1.9rem;
+  position: relative;
+}
+
+/* Effetto “pagina” con margini e bordo leggero */
+.book-page-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  pointer-events: none;
+}
+
+/* “Linea del dorso” a sinistra, stile quaderno */
+.book-page-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 58px;
+  border-left: 1px solid rgba(180, 120, 80, 0.25);
+}
+
+/* Griglia testo/schemi: come due pagine affiancate */
+.book-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.95fr);
+  gap: 1.4rem;
+}
+
+/* Intestazione sezione in alto alla pagina */
+
+.section-header {
+  margin-bottom: 1rem;
+}
+
+.section-header h1 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+}
+
+.section-subtitle {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* Colonna testo – vera “pagina libro” */
+
+.book-text-column {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.7;
+  padding-left: 1.3rem; /* per staccare dalla “linea rossa” */
+}
+
+.book-text-column h2 {
+  font-size: 1.05rem;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.book-text-column ul {
+  margin-top: 0.2rem;
+  padding-left: 1.1rem;
+}
+
+.book-text-column li {
+  margin-bottom: 0.18rem;
+}
+
+.book-text-column p {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+}
+
+/* Colonna schemi – “pagina di destra” */
+
+.book-schema-column {
+  font-size: 0.85rem;
+}
+
+.schema-card {
+  border-radius: 14px;
   border: 1px solid var(--border-soft);
-  background: #fdfaf6;
-}}
+  background: #ffffff;
+  overflow: hidden;
+  margin-bottom: 0.8rem;
+}
 
-.concept-figure img {{
-  display: block;
+.schema-card img {
   width: 100%;
-}}
+  display: block;
+}
 
-.concept-figure figcaption {{
-  padding: 0.4rem 0.6rem;
-  font-size: 0.8rem;
-}}
+.schema-card figcaption {
+  padding: 0.45rem 0.6rem;
+  font-size: 0.78rem;
+  background: #f8f4ee;
+}
 
-.section-nav {{
+/* Navigazione sezione precedente/successiva */
+
+.section-nav {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 1.4rem;
-  gap: 0.6rem;
-}}
+  gap: 0.7rem;
+  margin-top: 1.2rem;
+}
 
-.section-nav a {{
+.section-nav a {
   flex: 1;
   text-decoration: none;
-  font-size: 0.9rem;
-  padding: 0.5rem 0.7rem;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-soft);
+  font-size: 0.86rem;
   text-align: center;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
   background: #f7eee2;
   color: #5b3b22;
-}}
+}
 
-.section-nav a:hover {{
-  background: #f1e0ca;
-}}
+body.theme-C .section-nav a,
+body.theme-D .section-nav a {
+  background: #1b2533;
+  color: #f7f7f7;
+}
 
-.nav-prev {{
-  justify-content: flex-start;
-}}
+.section-nav a:hover {
+  background: var(--accent-soft);
+}
 
-.nav-next {{
-  justify-content: flex-end;
-}}
+/* ====== Margine attivo (colonna destra) ====== */
 
-/* ====== Margine attivo ====== */
-.margin-column {{
-  background: var(--margin-bg);
-  border-radius: var(--radius-lg);
+.margin-column {
+  background: var(--bg-margin);
+  border-radius: 18px;
   padding: 0.9rem 1rem 1.1rem;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--page-shadow);
   position: sticky;
   top: 4.1rem;
-  font-size: 0.88rem;
-}}
+  font-size: 0.86rem;
+}
 
-.margin-column h2 {{
-  margin-top: 0;
-  margin-bottom: 0.4rem;
+.margin-column h2 {
+  margin: 0 0 0.3rem;
   font-size: 1rem;
-}}
+}
 
-.current-section-label {{
-  margin-top: 0;
-  font-size: 0.85rem;
-  color: #6a5541;
-}}
+.current-section-label {
+  margin: 0 0 0.5rem;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
 
-.margin-block {{
-  margin-top: 0.6rem;
-  padding-top: 0.5rem;
-  border-top: 1px dashed #d5c4af;
-}}
+.margin-block {
+  margin-top: 0.5rem;
+  padding-top: 0.45rem;
+  border-top: 1px dashed rgba(0, 0, 0, 0.18);
+}
 
-.margin-block h3 {{
-  margin: 0 0 0.35rem;
-  font-size: 0.9rem;
-}}
+.margin-block h3 {
+  margin: 0 0 0.3rem;
+  font-size: 0.88rem;
+}
 
-.margin-btn {{
+.margin-btn {
   display: inline-block;
   margin-top: 0.25rem;
   margin-right: 0.2rem;
   border-radius: 999px;
   border: none;
-  background: #f5d7ba;
-  padding: 0.35rem 0.8rem;
+  background: var(--accent-soft);
+  padding: 0.3rem 0.7rem;
   font-size: 0.8rem;
   cursor: pointer;
-}}
+}
 
-.margin-btn-secondary {{
-  background: #e3d4c6;
-}}
+.margin-btn-secondary {
+  background: #e0d3c6;
+}
 
-.margin-btn:hover {{
-  background: #f0c592;
-}}
+.margin-btn:hover {
+  background: var(--accent);
+  color: #fff;
+}
 
-#note-input {{
+#note-input {
   width: 100%;
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   border: 1px solid var(--border-soft);
-  padding: 0.35rem 0.4rem;
-  font-size: 0.82rem;
+  padding: 0.35rem 0.45rem;
+  font-size: 0.8rem;
   resize: vertical;
-}}
+  background: #ffffff;
+}
 
-.note-list {{
+.note-list {
   list-style: none;
   padding-left: 0;
   margin: 0.4rem 0 0;
-  max-height: 160px;
+  max-height: 150px;
   overflow: auto;
-}}
+}
 
-.note-list li {{
-  background: #fff;
+.note-list li {
+  background: #ffffff;
   border-radius: 8px;
-  padding: 0.3rem 0.4rem;
-  font-size: 0.78rem;
+  padding: 0.3rem 0.45rem;
   margin-bottom: 0.25rem;
-  border: 1px solid #e4d6c7;
-}}
+  border: 1px solid #e3d7c8;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
 
-.margin-actions {{
+.margin-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.3rem;
   margin-top: 0.25rem;
-}}
+}
 
-.margin-chip {{
+.margin-chip {
   border-radius: 999px;
   border: none;
-  background: #f0e1ff;
-  padding: 0.25rem 0.65rem;
+  background: #e2defb;
+  padding: 0.25rem 0.6rem;
   font-size: 0.78rem;
   cursor: pointer;
-}}
+}
 
-.margin-chip:hover {{
-  background: #e0c8ff;
-}}
+.margin-chip.clicked {
+  transform: translateY(1px);
+  opacity: 0.7;
+}
 
-.small {{
-  font-size: 0.75rem;
-  color: #7a6a57;
+.small {
   margin-top: 0.25rem;
-}}
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
 
-/* ====== Embedded video section ====== */
-.embedded-video {{
-  margin-top: 0.4rem;
-}}
+/* ====== Evidenziazioni ====== */
 
-.embedded-video h2 {{
-  font-size: 1rem;
-  margin-bottom: 0.35rem;
-}}
+.lesson-text span[data-highlight="true"] {
+  background: #f9e86b;
+  padding: 0 1px;
+}
 
-/* ====== Modal (placeholder per strumenti futuri) ====== */
-.modal-overlay[hidden] {{
+/* ====== Modal (strumenti futuri) ====== */
+
+.modal-overlay[hidden] {
   display: none;
-}}
+}
 
-.modal-overlay {{
+.modal-overlay {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 200;
-}}
+  z-index: 999;
+}
 
-.modal {{
-  background: var(--bg-alt);
-  border-radius: var(--radius-lg);
+.modal {
+  background: var(--bg-page);
+  border-radius: 18px;
   padding: 1rem 1.2rem;
   max-width: 480px;
   width: 100%;
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--page-shadow);
   position: relative;
-}}
+}
 
-.modal-close {{
+.modal-close {
   position: absolute;
   top: 0.3rem;
   right: 0.4rem;
@@ -545,87 +521,32 @@ body {{
   background: transparent;
   font-size: 1.1rem;
   cursor: pointer;
-}}
+}
 
-.modal h2 {{
-  margin-top: 0;
-}}
+/* ====== Responsivo ====== */
 
-.modal p {{
-  font-size: 0.9rem;
-}}
+@media (max-width: 1024px) {
+  .reading-layout {
+    grid-template-columns: minmax(0, 2.2fr) minmax(260px, 0.9fr);
+  }
+  .sidebar {
+    display: none;
+  }
+}
 
-/* ====== Temi (A–E) ====== */
-body.theme-A {{
-  --bg: #f6f1e8;
-  --bg-alt: #ffffff;
-  --text: #221a12;
-  --accent: #d2691e;
-  --sidebar-bg: #f0e5d6;
-  --margin-bg: #faf3e9;
-}}
-
-body.theme-B {{
-  --bg: #fbfaf5;
-  --bg-alt: #ffffff;
-  --text: #26211a;
-  --accent: #c34a36;
-  --sidebar-bg: #fffdf5;
-  --margin-bg: #fffaf0;
-}}
-
-body.theme-C {{
-  --bg: #061826;
-  --bg-alt: #0f2535;
-  --text: #f5f7fa;
-  --accent: #7ea6ff;
-  --sidebar-bg: #10293c;
-  --margin-bg: #0c2233;
-}}
-
-body.theme-C .reading-container,
-body.theme-C .sidebar,
-body.theme-C .margin-column,
-body.theme-C .intro-media {{
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.6);
-}}
-
-body.theme-D {{
-  --bg: #050608;
-  --bg-alt: #12141a;
-  --text: #f5f5f5;
-  --accent: #ffb84d;
-  --sidebar-bg: #181b22;
-  --margin-bg: #171a21;
-}}
-
-body.theme-E {{
-  --bg: #f1f5fb;
-  --bg-alt: #ffffff;
-  --text: #1b2330;
-  --accent: #4f7cff;
-  --sidebar-bg: #e5ecff;
-  --margin-bg: #f4f7ff;
-}}
-
-/* ====== Responsività ====== */
-@media (max-width: 960px) {{
-  .reading-layout {{
+@media (max-width: 820px) {
+  .reading-layout {
     grid-template-columns: minmax(0, 1fr);
-  }}
-
-  .sidebar,
-  .margin-column {{
+  }
+  .margin-column {
     position: static;
-  }}
-
-  .section-nav {{
-    flex-direction: column;
-  }}
-}}
-
-@media (max-width: 840px) {{
-  .intro-hero {{
+    margin-top: 1rem;
+  }
+  .book-page-grid {
     grid-template-columns: minmax(0, 1fr);
-  }}
-}}
+  }
+  .book-page-wrapper::after {
+    left: 36px;
+  }
+}
+
