@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Libro.0 – Pascoli</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script-index.js"></script>
+</head>
+<body data-page="index">
+  <header class="top-bar">
+    <div class="logo-area">
+      <span class="logo-main">Libro.0</span>
+      <span class="logo-sub">Lo spazio del pensare</span>
+    </div>
+
+    <div class="theme-switcher" aria-label="Selettore tema">
+      <button data-theme="A">A</button>
+      <button data-theme="B">B</button>
+      <button data-theme="C">C</button>
+      <button data-theme="D">D</button>
+      <button data-theme="E">E</button>
+    </div>
+
+    <nav class="tools-nav" aria-label="Strumenti Libro.0">
+      <button class="tool-btn" data-tool="mappe">🗺️ Mappe</button>
+      <button class="tool-btn" data-tool="lavagna">📝 Lavagna</button>
+      <button class="tool-btn" data-tool="archivio">📁 Archivio</button>
+    </nav>
+  </header>
+
+  <main class="intro-main">
+    <section class="intro-hero">
+      <div class="intro-text">
+        <h1>Giovanni Pascoli nel Libro.0</h1>
+        <p>
+          Questo ambiente non è una semplice scheda di letteratura, ma una
+          stanza del Libro.0: qui la lezione scritta convive con schemi,
+          immagini, video e strumenti che trasformano lo studente in autore
+          attivo del proprio studio.
+        </p>
+        <p>
+          Puoi leggere i testi, evidenziare, prendere appunti, inviare
+          concetti alle mappe, alla timeline o alla lavagna virtuale.
+          Ogni gesto lascia traccia in una memoria lunga, che resta tua.
+        </p>
+
+        <h2>Capitoli di Pascoli</h2>
+        <ol class="chapter-list intro-list">
+          <li><a href="stupore.html">1 · Lo stupore</a></li>
+          <li><a href="visione.html">2 · Visione del mondo</a></li>
+          <li><a href="fanciullino.html">3 · Poetica del fanciullino</a></li>
+          <li><a href="forma.html">4 · La forma</a></li>
+          <li><a href="simbolismo.html">5 · Il simbolismo</a></li>
+        </ol>
+      </div>
+
+      <div class="intro-media">
+        <figure class="video-cover-wrapper">
+          <img
+            id="pascoli-cover"
+            src="assets/pascoli_video.png"
+            alt="Introduzione a Pascoli"
+          />
+          <figcaption>Clicca l'immagine per avviare il video introduttivo.</figcaption>
+        </figure>
+
+        <div id="video-container" class="video-container" hidden>
+          <div class="responsive-iframe">
+            <iframe
+              src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
+              title="HeyGen video player"
+              frameborder="0"
+              allow="encrypted-media; fullscreen;"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <button id="btn-back-to-cover" class="back-btn">⏹ Torna all'immagine</button>
+        </div>
+
+        <figure class="intro-image">
+          <img src="assets/Pascoli-intro.png" alt="Giovanni Pascoli – immagine introduttiva" />
+          <figcaption>Giovanni Pascoli, tra biografia, visione del mondo e simboli.</figcaption>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal-overlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</body>
+</html>

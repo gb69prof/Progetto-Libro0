@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <title>Pascoli – Il simbolismo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script-common.js"></script>
+</head>
+<body data-section="simbolismo">
+  <header class="top-bar">
+    <div class="logo-area">
+      <a href="index.html" class="logo-main">Libro.0</a>
+      <span class="logo-sub">Giovanni Pascoli</span>
+    </div>
+
+    <div class="theme-switcher" aria-label="Selettore tema">
+      <button data-theme="A">A</button>
+      <button data-theme="B">B</button>
+      <button data-theme="C">C</button>
+      <button data-theme="D">D</button>
+      <button data-theme="E">E</button>
+    </div>
+
+    <nav class="tools-nav" aria-label="Strumenti Libro.0">
+      <button class="tool-btn" data-tool="mappe">🗺️ Mappe</button>
+      <button class="tool-btn" data-tool="lavagna">📝 Lavagna</button>
+      <button class="tool-btn" data-tool="archivio">📁 Archivio</button>
+    </nav>
+  </header>
+
+  <main class="reading-layout">
+    <aside class="sidebar">
+      <h2>Capitoli</h2>
+      <ol class="chapter-list">
+        <li><a href="stupore.html" class="chapter-link" data-chapter="stupore">1 · Lo stupore</a></li>
+        <li><a href="visione.html" class="chapter-link" data-chapter="visione">2 · Visione del mondo</a></li>
+        <li><a href="fanciullino.html" class="chapter-link" data-chapter="fanciullino">3 · Poetica del fanciullino</a></li>
+        <li><a href="forma.html" class="chapter-link" data-chapter="forma">4 · La forma</a></li>
+        <li><a href="simbolismo.html" class="chapter-link" data-chapter="simbolismo">5 · Il simbolismo</a></li>
+      </ol>
+    </aside>
+
+    <section class="reading-container">
+      <header class="section-header">
+        <h1>Il simbolismo</h1>
+        <p class="section-subtitle">
+          Testo fisso + schemi, immagini e strumenti per trasformare la lettura in azione.
+        </p>
+      </header>
+
+      <article class="reading-column">
+        
+
+        <figure class="hero-figure">
+          <img src="assets/Pascoli-simbolista.png" alt="Il simbolismo">
+          <figcaption>Schema-guida per la sezione “Il simbolismo”.</figcaption>
+        </figure>
+
+        <section class="lesson-text">
+          <!-- Inserisci qui il testo integrale e definitivo della lezione “Il simbolismo”. -->
+          <p class="placeholder-text">
+            Qui va il testo completo della tua lezione su “Il simbolismo”. Mantienilo invariato,
+            come in un libro: tutto il resto (gesti, note, mappe) si appoggia su questo testo.
+          </p>
+        </section>
+
+        <section class="lesson-gallery">
+          
+        <figure class="concept-figure">
+          <img src="assets/Siepe.png" alt="La siepe in Pascoli e Leopardi">
+          <figcaption>Due immagini del mondo a confronto.</figcaption>
+        </figure>
+        
+
+        <figure class="concept-figure">
+          <img src="assets/Digitale.png" alt="Digitale purpurea">
+          <figcaption>Simbolo del proibito e della seduzione.</figcaption>
+        </figure>
+        
+        </section>
+
+        <nav class="section-nav">
+          <a class="nav-prev" href="forma.html">⬅ Sezione precedente: La forma</a>
+          <a class="nav-next" href="index.html">Torna all'indice ➡</a>
+        </nav>
+      </article>
+
+      <aside class="margin-column">
+        <h2>Margine attivo</h2>
+        <p class="current-section-label">
+          Sezione attuale: <span id="current-section-name"></span>
+        </p>
+
+        <div class="margin-block">
+          <h3>Evidenzia</h3>
+          <p>Seleziona una frase nel testo, poi clicca:</p>
+          <button id="btn-highlight" class="margin-btn">Evidenzia selezione</button>
+          <button id="btn-clear-highlights" class="margin-btn margin-btn-secondary">
+            Pulisci evidenziazioni
+          </button>
+        </div>
+
+        <div class="margin-block">
+          <h3>Nota rapida</h3>
+          <textarea id="note-input" rows="4" placeholder="Scrivi una nota personale..."></textarea>
+          <button id="btn-save-note" class="margin-btn">Salva nota</button>
+          <ul id="note-list" class="note-list"></ul>
+        </div>
+
+        <div class="margin-block">
+          <h3>Invia a...</h3>
+          <p>Trasforma ciò che hai capito in azione:</p>
+          <div class="margin-actions">
+            <button class="margin-chip" data-destination="mappa">Mappa concettuale</button>
+            <button class="margin-chip" data-destination="timeline">Timeline</button>
+            <button class="margin-chip" data-destination="lavagna">Lavagna</button>
+            <button class="margin-chip" data-destination="archivio">Archivio personale</button>
+          </div>
+          <p class="small">
+            Questi pulsanti non ti portano fuori dalla stanza: registrano l'intenzione e possono
+            essere collegati a strumenti reali nelle versioni successive del Libro.0.
+          </p>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="modal-overlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <button class="modal-close" id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</body>
+</html>
