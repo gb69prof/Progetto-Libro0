@@ -4,22 +4,6 @@
   <meta charset="UTF-8" />
   <title>Pascoli – Lo stupore</title>
   <link rel="stylesheet" href="style.css" />
-
-  <!-- Stile locale per ridurre l'immagine della sezione Stupore -->
-  <style>
-    .hero-figure {
-      max-width: 500px;
-      margin: 1rem auto 0.8rem; /* la stringo e la centro */
-    }
-    .hero-figure img {
-      display: block;
-      max-height: 360px;      /* altezza massima per farla entrare tutta */
-      width: auto;            /* mantiene le proporzioni */
-      margin: 0 auto;
-      object-fit: contain;    /* non taglia l'immagine */
-    }
-  </style>
-
   <script defer src="script-common.js"></script>
 </head>
 <body data-section="stupore">
@@ -45,6 +29,7 @@
   </header>
 
   <main class="reading-layout">
+    <!-- Sidebar capitoli -->
     <aside class="sidebar">
       <h2>Capitoli</h2>
       <ol class="chapter-list">
@@ -56,118 +41,127 @@
       </ol>
     </aside>
 
+    <!-- Colonna centrale: pagina di libro -->
     <section class="reading-container">
-      <header class="section-header">
-        <h1>Lo stupore</h1>
-        <p class="section-subtitle">
-          Testo fisso + schemi, immagini e strumenti per trasformare la lettura in azione.
-        </p>
-      </header>
-
-      <article class="reading-column">
-        <figure class="hero-figure">
-          <img src="assets/Stupore.png" alt="Lo stupore">
-          <figcaption>Schema-guida per la sezione “Lo stupore”.</figcaption>
-        </figure>
-
-        <section class="lesson-text">
-          <p><strong>LO STUPORE</strong></p>
-
-          <p>
-            Per Pascoli la poesia nasce dalla meraviglia: il poeta è un “fanciullino” che sogna alla luce e
-            vede nel buio, scoprendo ogni cosa come fosse nuova. Questa idea deriva sia dalla tradizione
-            poetica (Leopardi), sia dai lutti che segnarono la sua vita. Il dolore lo porta a rifiutare la
-            fiducia nella scienza positivista e ad abbracciare una visione irrazionale, vicina al
-            Decadentismo.
+      <div class="book-page-wrapper">
+        <header class="section-header">
+          <h1>Lo stupore</h1>
+          <p class="section-subtitle">
+            Testo fisso + schema visivo, come in una doppia pagina di libro.
           </p>
+        </header>
 
-          <p>
-            Il nido-famiglia diventa rifugio e simbolo di protezione; la politica si intreccia con i
-            sentimenti (socialismo come fratellanza, nazionalismo come casa per gli emigranti). Lo stile
-            riflette questa visione: sintassi frammentata, figure foniche (allitterazioni, onomatopee) e
-            sinestesie. La realtà non è già data, ma nasce ogni volta nello sguardo del poeta.
-          </p>
+        <div class="book-page-grid">
+          <!-- Pagina sinistra: testo -->
+          <article class="book-text-column">
+            <section class="lesson-text">
+              <p><strong>LO STUPORE</strong></p>
 
-          <h2>Schema sintetico</h2>
-          <ul>
-            <li>Poesia = stupore e scoperta del mondo.</li>
-            <li>Influenze: tradizione (Leopardi) + biografia segnata dai lutti.</li>
-            <li>Rifiuto della scienza → dolore cosmico.</li>
-            <li>Nido-famiglia = rifugio, simbolo costante.</li>
-            <li>Politica: socialismo (fratellanza), nazionalismo (nido per emigranti).</li>
-            <li>Stile: sintassi semplice, paratassi, figure foniche, sinestesie.</li>
-            <li>Realtà = simbolo che nasce dallo sguardo del poeta.</li>
-          </ul>
+              <p>
+                Per Pascoli la poesia nasce dalla meraviglia: il poeta è un “fanciullino” che sogna alla luce e
+                vede nel buio, scoprendo ogni cosa come fosse nuova. Questa idea deriva sia dalla tradizione
+                poetica (Leopardi), sia dai lutti che segnarono la sua vita. Il dolore lo porta a rifiutare la
+                fiducia nella scienza positivista e ad abbracciare una visione irrazionale, vicina al
+                Decadentismo.
+              </p>
 
-          <h2>Saperi irrinunciabili</h2>
-          <ul>
-            <li>Il poeta è un fanciullino che si stupisce di tutto.</li>
-            <li>Il dolore familiare segna la sua visione del mondo.</li>
-            <li>Rifiuta la scienza positivista.</li>
-            <li>Centrale il simbolo del nido-famiglia.</li>
-            <li>Sintassi paratattica e figure sonore.</li>
-          </ul>
+              <p>
+                Il nido-famiglia diventa rifugio e simbolo di protezione; la politica si intreccia con i
+                sentimenti (socialismo come fratellanza, nazionalismo come casa per gli emigranti). Lo stile
+                riflette questa visione: sintassi frammentata, figure foniche (allitterazioni, onomatopee) e
+                sinestesie. La realtà non è già data, ma nasce ogni volta nello sguardo del poeta.
+              </p>
 
-          <h2>Vocabolario</h2>
-          <ul>
-            <li><strong>Fanciullino</strong>: parte infantile che resta viva nell’uomo e nel poeta.</li>
-            <li><strong>Nido-famiglia</strong>: simbolo di protezione e rifugio dagli affanni.</li>
-            <li><strong>Paratassi</strong>: costruzione di frasi coordinate senza subordinazione.</li>
-            <li><strong>Sinestesia</strong>: accostamento di sensazioni di sfere sensoriali diverse.</li>
-            <li><strong>Allitterazione</strong>: ripetizione di suoni uguali o simili in una frase.</li>
-          </ul>
-        </section>
+              <h2>Schema sintetico</h2>
+              <ul>
+                <li>Poesia = stupore e scoperta del mondo.</li>
+                <li>Influenze: tradizione (Leopardi) + biografia segnata dai lutti.</li>
+                <li>Rifiuto della scienza → dolore cosmico.</li>
+                <li>Nido-famiglia = rifugio, simbolo costante.</li>
+                <li>Politica: socialismo (fratellanza), nazionalismo (nido per emigranti).</li>
+                <li>Stile: sintassi semplice, paratassi, figure foniche, sinestesie.</li>
+                <li>Realtà = simbolo che nasce dallo sguardo del poeta.</li>
+              </ul>
 
-        <section class="lesson-gallery">
-          <!-- Qui puoi aggiungere, se vuoi, altre immagini dedicate allo stupore. -->
-        </section>
+              <h2>Saperi irrinunciabili</h2>
+              <ul>
+                <li>Il poeta è un fanciullino che si stupisce di tutto.</li>
+                <li>Il dolore familiare segna la sua visione del mondo.</li>
+                <li>Rifiuta la scienza positivista.</li>
+                <li>Centrale il simbolo del nido-famiglia.</li>
+                <li>Sintassi paratattica e figure sonore.</li>
+              </ul>
 
-        <nav class="section-nav">
-          <a class="nav-prev" href="index.html">⬅ Torna all'indice</a>
-          <a class="nav-next" href="visione.html">Sezione successiva: Visione del mondo ➡</a>
-        </nav>
-      </article>
+              <h2>Vocabolario</h2>
+              <ul>
+                <li><strong>Fanciullino</strong>: parte infantile che resta viva nell’uomo e nel poeta.</li>
+                <li><strong>Nido-famiglia</strong>: simbolo di protezione e rifugio dagli affanni.</li>
+                <li><strong>Paratassi</strong>: costruzione di frasi coordinate senza subordinazione.</li>
+                <li><strong>Sinestesia</strong>: accostamento di sensazioni di sfere sensoriali diverse.</li>
+                <li><strong>Allitterazione</strong>: ripetizione di suoni uguali o simili in una frase.</li>
+              </ul>
+            </section>
 
-      <aside class="margin-column">
-        <h2>Margine attivo</h2>
-        <p class="current-section-label">
-          Sezione attuale: <span id="current-section-name"></span>
-        </p>
+            <nav class="section-nav">
+              <a class="nav-prev" href="index.html">⬅ Torna all'indice</a>
+              <a class="nav-next" href="visione.html">Sezione successiva: Visione del mondo ➡</a>
+            </nav>
+          </article>
 
-        <div class="margin-block">
-          <h3>Evidenzia</h3>
-          <p>Seleziona una frase nel testo, poi clicca:</p>
-          <button id="btn-highlight" class="margin-btn">Evidenzia selezione</button>
-          <button id="btn-clear-highlights" class="margin-btn margin-btn-secondary">
-            Pulisci evidenziazioni
-          </button>
+          <!-- Pagina destra: schema -->
+          <aside class="book-schema-column">
+            <figure class="schema-card">
+              <img src="assets/Stupore.png" alt="Schema sullo stupore pascoliano">
+              <figcaption>
+                Schema-guida: dallo stupore del fanciullino alla visione del mondo pascoliana.
+              </figcaption>
+            </figure>
+          </aside>
         </div>
-
-        <div class="margin-block">
-          <h3>Nota rapida</h3>
-          <textarea id="note-input" rows="4" placeholder="Scrivi una nota personale..."></textarea>
-          <button id="btn-save-note" class="margin-btn">Salva nota</button>
-          <ul id="note-list" class="note-list"></ul>
-        </div>
-
-        <div class="margin-block">
-          <h3>Invia a...</h3>
-          <p>Trasforma ciò che hai capito in azione:</p>
-          <div class="margin-actions">
-            <button class="margin-chip" data-destination="mappa">Mappa concettuale</button>
-            <button class="margin-chip" data-destination="timeline">Timeline</button>
-            <button class="margin-chip" data-destination="lavagna">Lavagna</button>
-            <button class="margin-chip" data-destination="archivio">Archivio personale</button>
-          </div>
-          <p class="small">
-            Questi pulsanti non ti portano fuori dalla stanza: registrano l'intenzione e possono
-            essere collegati a strumenti reali nelle versioni successive del Libro.0.
-          </p>
-        </div>
-      </aside>
+      </div>
     </section>
+
+    <!-- Margine intelligente -->
+    <aside class="margin-column">
+      <h2>Margine attivo</h2>
+      <p class="current-section-label">
+        Sezione attuale: <span id="current-section-name"></span>
+      </p>
+
+      <div class="margin-block">
+        <h3>Evidenzia</h3>
+        <p>Seleziona una frase nel testo, poi clicca:</p>
+        <button id="btn-highlight" class="margin-btn">Evidenzia selezione</button>
+        <button id="btn-clear-highlights" class="margin-btn margin-btn-secondary">
+          Pulisci evidenziazioni
+        </button>
+      </div>
+
+      <div class="margin-block">
+        <h3>Nota rapida</h3>
+        <textarea id="note-input" rows="4" placeholder="Scrivi una nota personale..."></textarea>
+        <button id="btn-save-note" class="margin-btn">Salva nota</button>
+        <ul id="note-list" class="note-list"></ul>
+      </div>
+
+      <div class="margin-block">
+        <h3>Invia a...</h3>
+        <p>Trasforma ciò che hai capito in azione:</p>
+        <div class="margin-actions">
+          <button class="margin-chip" data-destination="mappa">Mappa concettuale</button>
+          <button class="margin-chip" data-destination="timeline">Timeline</button>
+          <button class="margin-chip" data-destination="lavagna">Lavagna</button>
+          <button class="margin-chip" data-destination="archivio">Archivio personale</button>
+        </div>
+        <p class="small">
+          Questi pulsanti registrano la tua intenzione e possono essere collegati a strumenti reali
+          nelle versioni successive del Libro.0.
+        </p>
+      </div>
+    </aside>
   </main>
 
+  <!-- Modale strumenti -->
   <div id="modal-overlay" class="modal-overlay" hidden>
     <div class="modal">
       <button class="modal-close" id="modal-close">✕</button>
@@ -176,4 +170,5 @@
   </div>
 </body>
 </html>
+
 
