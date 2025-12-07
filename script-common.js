@@ -210,4 +210,16 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.target === modalOverlay) modalOverlay.hidden = true;
     });
   }
+
+  /* ===== Lightbox immagini (ingrandimento a pieno schermo) ===== */
+  document.querySelectorAll("img.enlargeable").forEach((img) => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => {
+      const overlay = document.createElement("div");
+      overlay.className = "lightbox-overlay";
+      overlay.innerHTML = `<img src="${img.src}" alt="">`;
+      overlay.addEventListener("click", () => overlay.remove());
+      document.body.appendChild(overlay);
+    });
+  });
 });
