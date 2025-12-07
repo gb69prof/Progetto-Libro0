@@ -4,63 +4,8 @@
   <meta charset="UTF-8" />
   <title>Libro.0 – Pascoli</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script-common.js"></script>
   <script defer src="script-index.js"></script>
-
-  <style>
-    /* Sovrascrivo lo sfondo del modale per togliere l'effetto "cartoncino" */
-    #modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 9999;
-    }
-
-    #modal-overlay[hidden] {
-      display: none;
-    }
-
-    #modal-overlay .modal {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      background: transparent;   /* niente riquadro chiaro */
-      box-shadow: none;
-    }
-
-    /* wrapper che centra l'immagine ingrandita */
-    .modal-center-wrapper {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-center-wrapper img {
-      /* FORZO l’immagine a riempire lo schermo quasi del tutto */
-      width: 90vw;
-      max-width: 90vw;
-      max-height: 90vh;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 0 18px rgba(0,0,0,0.5);
-      cursor: pointer;
-    }
-
-    /* pulsante X in alto a destra */
-    #modal-close {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      font-size: 1.8rem;
-      line-height: 1;
-      background: #ffffff;
-      border-radius: 999px;
-      padding: 0.1rem 0.6rem;
-      border: none;
-      cursor: pointer;
-    }
-  </style>
 </head>
 
 <body data-page="index">
@@ -126,11 +71,8 @@
             />
           </div>
 
-          <!-- Il video viene gestito da script-index.js, mantenendo stessa posizione/dimensione -->
           <div id="video-container" hidden>
-            <div
-              style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;"
-            >
+            <div style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;">
               <iframe
                 src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
                 title="HeyGen video player"
@@ -141,7 +83,7 @@
               ></iframe>
             </div>
 
-            <button id="btn-back-to-cover" class="back-btn" style="margin-top:0.5rem;">
+            <button id="btn-back-to-cover" class="back-btn">
               ⏹ Torna all'immagine
             </button>
           </div>
@@ -151,15 +93,15 @@
           </figcaption>
         </figure>
 
-        <!-- Seconda immagine: piccola nella pagina, grande a schermo intero al click -->
+        <!-- Seconda immagine: piccola, ingrandibile -->
         <figure class="intro-image">
           <img
             id="pascoli-intro"
+            class="enlargeable"
             src="assets/Pascoli-intro.png"
             alt="Giovanni Pascoli – immagine introduttiva"
-            style="max-width:260px; width:100%; height:auto; margin:1.5rem auto 0.5rem auto; cursor:pointer; display:block;"
           />
-          <figcaption style="text-align:center;">
+          <figcaption>
             Giovanni Pascoli, tra biografia, visione del mondo e simboli.
           </figcaption>
         </figure>
@@ -170,66 +112,9 @@
   <!-- Modale generale -->
   <div id="modal-overlay" class="modal-overlay" hidden>
     <div class="modal">
-      <button id="modal-close">✕</button>
+      <button class="modal-close" id="modal-close">✕</button>
       <div id="modal-content"></div>
     </div>
   </div>
-
-  <!-- Script per zoom dell'immagine Pascoli-intro -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const introImg = document.getElementById('pascoli-intro');
-      const modalOverlay = document.getElementById('modal-overlay');
-      const modalContent = document.getElementById('modal-content');
-      const modalClose = document.getElementById('modal-close');
-
-      if (introImg && modalOverlay && modalContent && modalClose) {
-        introImg.addEventListener('click', () => {
-          // svuota il contenuto precedente
-          modalContent.innerHTML = '';
-
-          // wrapper che centra l'immagine
-          const wrapper = document.createElement('div');
-          wrapper.className = 'modal-center-wrapper';
-
-          // clono l'immagine ma SENZA lo stile piccolo: la gestiamo da CSS
-          const bigImg = introImg.cloneNode();
-          bigImg.removeAttribute('style'); // togliamo max-width:260px ecc.
-
-          wrapper.appendChild(bigImg);
-          modalContent.appendChild(wrapper);
-          modalOverlay.hidden = false;
-
-          const closeModal = () => {
-            modalOverlay.hidden = true;
-            modalContent.innerHTML = '';
-          };
-
-          // clic sull'immagine grande
-          bigImg.addEventListener('click', closeModal);
-
-          // clic sullo sfondo scuro
-          modalOverlay.addEventListener(
-            'click',
-            (e) => {
-              if (e.target === modalOverlay) {
-                closeModal();
-              }
-            },
-            { once: true }
-          );
-
-          // pulsante X
-          modalClose.addEventListener(
-            'click',
-            () => {
-              closeModal();
-            },
-            { once: true }
-          );
-        });
-      }
-    });
-  </script>
 </body>
 </html>
