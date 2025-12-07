@@ -55,39 +55,56 @@
       </div>
 
       <div class="intro-media">
-        <!-- Copertina video Pascoli: immagine ridotta + click per aprire il video -->
-        <figure class="video-cover-wrapper">
-          <img
-            id="pascoli-cover"
-            class="pascoli-cover-img"
-            src="assets/pascoli_video.png"
-            alt="Introduzione a Pascoli"
-            style="max-width: 260px; width: 100%; height: auto; cursor: pointer; display: block; margin: 0 auto;"
-          />
-          <figcaption>Clicca l'immagine per avviare il video introduttivo.</figcaption>
+        <!-- Copertina + video nello stesso identico spazio -->
+        <figure class="video-cover-wrapper" style="max-width:260px; margin:0 auto;">
+          <!-- Immagine iniziale (cliccabile) -->
+          <div id="cover-wrapper">
+            <img
+              id="pascoli-cover"
+              class="pascoli-cover-img"
+              src="assets/pascoli_video.png"
+              alt="Introduzione a Pascoli"
+              style="width:100%; height:auto; cursor:pointer; display:block;"
+            />
+          </div>
+
+          <!-- Video che sostituisce l'immagine mantenendo posizione e dimensioni -->
+          <div id="video-container" hidden>
+            <div
+              class="video-frame-wrapper"
+              style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;"
+            >
+              <iframe
+                src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
+                title="HeyGen video player"
+                frameborder="0"
+                allow="encrypted-media; fullscreen;"
+                allowfullscreen
+                style="position:absolute; top:0; left:0; width:100%; height:100%;"
+              ></iframe>
+            </div>
+            <button
+              id="btn-back-to-cover"
+              class="back-btn"
+              style="margin-top:0.5rem;"
+            >
+              ⏹ Torna all'immagine
+            </button>
+          </div>
+
+          <figcaption style="text-align:center; margin-top:0.5rem;">
+            Clicca l'immagine per avviare il video introduttivo.
+          </figcaption>
         </figure>
 
-        <!-- Contenitore video che viene mostrato al click (gestito da script-index.js) -->
-        <div id="video-container" class="video-container" hidden>
-          <div class="responsive-iframe">
-            <iframe
-              src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
-              title="HeyGen video player"
-              frameborder="0"
-              allow="encrypted-media; fullscreen;"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <button id="btn-back-to-cover" class="back-btn">⏹ Torna all'immagine</button>
-        </div>
-
-        <!-- Immagine introduttiva di Pascoli (schema / immagine affiancata al testo) -->
+        <!-- Seconda immagine, ridotta per stare tutta a schermo -->
         <figure class="intro-image">
           <img
             src="assets/Pascoli-intro.png"
             alt="Giovanni Pascoli – immagine introduttiva"
+            style="max-width:260px; width:100%; height:auto; display:block; margin:1.5rem auto 0.5rem auto;"
           />
-          <figcaption>
+          <figcaption style="text-align:center;">
             Giovanni Pascoli, tra biografia, visione del mondo e simboli.
           </figcaption>
         </figure>
