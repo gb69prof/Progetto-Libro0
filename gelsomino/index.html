@@ -1,277 +1,222 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Il gelsomino notturno – lezione interattiva</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Libro.0 – Pascoli</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script-common.js"></script>
+  <script defer src="script-index.js"></script>
+
+  <style>
+    /* Sovrascrivo lo sfondo del modale per togliere l'effetto "cartoncino" */
+    #modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+    }
+
+    #modal-overlay[hidden] {
+      display: none;
+    }
+
+    #modal-overlay .modal {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .modal-center-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-center-wrapper img {
+      width: 90vw;
+      max-width: 90vw;
+      max-height: 90vh;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 18px rgba(0,0,0,0.5);
+      cursor: pointer;
+    }
+
+    #modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      font-size: 1.8rem;
+      line-height: 1;
+      background: #ffffff;
+      border-radius: 999px;
+      padding: 0.1rem 0.6rem;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
-<body>
-  <header class="hero">
-    <div class="hero-inner">
-      <h1>Il gelsomino notturno</h1>
-      <p class="hero-subtitle">Giovanni Pascoli – lettura guidata, immagini e simboli</p>
-      <div class="hero-meta">
-        <span>Lezione interattiva</span>
-        <span>Testo, immagini e analisi per la classe</span>
-      </div>
+
+<body data-page="index">
+  <header class="top-bar">
+    <div class="logo-area">
+      <span class="logo-main">Libro.0</span>
+      <span class="logo-sub">Lo spazio del pensare</span>
     </div>
+
+    <div class="theme-switcher" aria-label="Selettore tema">
+      <button data-theme="A">A</button>
+      <button data-theme="B">B</button>
+      <button data-theme="C">C</button>
+      <button data-theme="D">D</button>
+      <button data-theme="E">E</button>
+    </div>
+
+    <nav class="tools-nav" aria-label="Strumenti Libro.0">
+      <button class="tool-btn" data-tool="mappe">🗺️ Mappe</button>
+      <button class="tool-btn" data-tool="lavagna">📝 Lavagna</button>
+      <button class="tool-btn" data-tool="archivio">📁 Archivio</button>
+    </nav>
   </header>
 
-  <nav class="top-nav">
-    <a href="#voce">Voce di Pascoli</a>
-    <a href="#perche">Perché questa poesia</a>
-    <a href="#testo">Testo</a>
-    <a href="#strofe">Strofa per strofa</a>
-    <a href="#simboli">Simboli</a>
-    <a href="#laboratorio">Laboratorio</a>
-  </nav>
+  <main class="intro-main">
+    <section class="intro-hero">
 
-  <main>
-    <section id="voce" class="section">
-      <h2>La voce di Giovanni Pascoli</h2>
-      <p>
-        Clicca sull’immagine per ascoltare la presentazione animata di Pascoli
-        (nella versione collegata dal Libro.0 potrai associare qui il video di HeyGen o YouTube).
-      </p>
-      <figure>
-        <img src="assets/pascoli.png" alt="Ritratto di Giovanni Pascoli">
-        <figcaption>Giovanni Pascoli – immagine di riferimento per la video‑presentazione.</figcaption>
-      </figure>
-    </section>
+      <!-- COLONNA SINISTRA -->
+      <div class="intro-text">
+        <h1>Giovanni Pascoli nel Libro.0</h1>
 
-    <section id="perche" class="section">
-      <h2>Perché questa poesia</h2>
-      <p>
-        <strong>Il gelsomino notturno</strong> è una delle poesie più famose di Pascoli.
-        Non è solo un testo da studiare: è una piccola scena notturna.
-        Una casa illuminata, una coppia di sposi, un giardino pieno di profumi,
-        un poeta che guarda da fuori e pensa ai suoi morti.
-      </p>
-      <p>La poesia intreccia tre fili fondamentali:</p>
-      <ul>
-        <li>la nascita di una nuova famiglia (gli sposi nella casa che “bisbiglia”);</li>
-        <li>la fecondazione e il mistero del sesso, raccontati attraverso fiori, profumi, animali;</li>
-        <li>l’esclusione dolorosa del poeta, che resta fuori dalla scena, solo con il ricordo dei “cari”.</li>
-      </ul>
-      <p>
-        Questa web app guida lo studente a leggere la poesia con le immagini:
-        ogni strofa è accompagnata da un “quadro dei versi” e da un “quadro della realtà”,
-        per vedere come Pascoli trasforma un’esperienza concreta in simboli poetici.
-      </p>
-    </section>
+        <p>
+          Questo ambiente non è una semplice scheda di letteratura, ma una stanza del Libro.0:
+          qui la lezione scritta convive con schemi, immagini, video e strumenti che trasformano
+          lo studente in autore attivo del proprio studio.
+        </p>
 
-    <section id="testo" class="section section-poem">
-      <h2>Testo della poesia</h2>
-      <div class="poem">
-        <p class="verse">E s’aprono i fiori notturni,</p>
-        <p class="verse">nell’ora che penso ai miei cari.</p>
-        <p class="verse">Sono apparse in mezzo ai viburni</p>
-        <p class="verse">le farfalle crepuscolari.</p>
+        <p>
+          Puoi leggere i testi, evidenziare, prendere appunti, inviare concetti alle mappe,
+          alla timeline o alla lavagna virtuale. Ogni gesto lascia traccia in una memoria lunga.
+        </p>
 
-        <p class="verse">Da un pezzo si tacquero i gridi:</p>
-        <p class="verse">là sola una casa bisbiglia.</p>
-        <p class="verse">Sotto l’ali dormono i nidi,</p>
-        <p class="verse">come gli occhi sotto le ciglia.</p>
+        <h2>Capitoli di Pascoli</h2>
+        <ol class="chapter-list intro-list">
+          <li><a href="stupore.html">1 · Lo stupore</a></li>
+          <li><a href="visione.html">2 · Visione del mondo</a></li>
+          <li><a href="fanciullino.html">3 · Poetica del fanciullino</a></li>
+          <li><a href="forma.html">4 · La forma</a></li>
+          <li><a href="simbolismo.html">5 · Il simbolismo</a></li>
+        </ol>
 
-        <p class="verse">Dai calici aperti si esala</p>
-        <p class="verse">l’odore di fragole rosse.</p>
-        <p class="verse">Splende un lume là nella sala.</p>
-        <p class="verse">Nasce l’erba sopra le fosse.</p>
-
-        <p class="verse">Un’ape tardiva sussurra</p>
-        <p class="verse">trovando già prese le celle.</p>
-        <p class="verse">La Chioccetta per l’aia azzurra</p>
-        <p class="verse">va col suo pigolio di stelle.</p>
-
-        <p class="verse">Per tutta la notte s’esala</p>
-        <p class="verse">l’odore che passa col vento.</p>
-        <p class="verse">Passa il lume su per la scala;</p>
-        <p class="verse">brilla al primo piano: s’è spento…</p>
-
-        <p class="verse">È l’alba: si chiudono i petali</p>
-        <p class="verse">un poco gualciti; si cova,</p>
-        <p class="verse">dentro l’urna molle e segreta,</p>
-        <p class="verse">non so che felicità nuova.</p>
+        <!-- SEZIONE NUOVA -->
+        <h2>I testi</h2>
+        <ul class="chapter-list intro-list">
+          <li>
+            <a href="gelsomino/index.html" target="_blank">
+              Il gelsomino notturno – lezione interattiva
+            </a>
+          </li>
+        </ul>
       </div>
-    </section>
 
-    <section id="strofe" class="section section-strofe">
-      <h2>Strofa per strofa – quadri e realtà</h2>
+      <!-- COLONNA DESTRA -->
+      <div class="intro-media">
 
-      <article class="stanza-card">
-        <div class="stanza-header">
-          <h3>Strofa 1 – L’apertura della notte</h3>
-          <button class="toggle-analisi" data-target="analisi-strofa-1">Mostra / nascondi analisi</button>
-        </div>
-        <div class="stanza-content">
-          <div class="stanza-text">
-            <p class="verse">E s’aprono i fiori notturni, / nell’ora che penso ai miei cari.</p>
-            <p class="verse">Sono apparse in mezzo ai viburni / le farfalle crepuscolari.</p>
+        <figure class="video-cover-wrapper" style="max-width:260px; margin:0 auto;">
+          <div id="cover-wrapper">
+            <img
+              id="pascoli-cover"
+              src="assets/pascoli_video.png"
+              alt="Introduzione a Pascoli"
+              style="width:100%; height:auto; cursor:pointer; display:block;"
+            />
           </div>
-          <div class="stanza-images">
-            <figure>
-              <img src="assets/strofa1-versi.jpg" alt="Illustrazione dei fiori notturni e dei viburni">
-              <figcaption>Quadro dei versi: la scena notturna nel giardino, tra fiori e viburni.</figcaption>
-            </figure>
-            <figure class="reality reality-locked">
-              <img src="assets/strofa1-realta.jpg" alt="Rappresentazione simbolica del ricordo dei cari defunti">
-              <figcaption>Quadro della realtà: il pensiero dei morti che affiora al calare della sera.</figcaption>
-            </figure>
-          </div>
-          <div id="analisi-strofa-1" class="stanza-analisi">
-            Il fiore notturno si apre proprio nel momento del ricordo dei defunti:
-            la natura non è sfondo, ma specchio della memoria. Le farfalle crepuscolari
-            sono immagini sospese tra vita e morte, tra giorno e notte.
-          </div>
-        </div>
-      </article>
 
-      <article class="stanza-card">
-        <div class="stanza-header">
-          <h3>Strofa 2 – La casa che bisbiglia</h3>
-          <button class="toggle-analisi" data-target="analisi-strofa-2">Mostra / nascondi analisi</button>
-        </div>
-        <div class="stanza-content">
-          <div class="stanza-text">
-            <p class="verse">Da un pezzo si tacquero i gridi: / là sola una casa bisbiglia.</p>
-            <p class="verse">Sotto l’ali dormono i nidi, / come gli occhi sotto le ciglia.</p>
-          </div>
-          <div class="stanza-images">
-            <figure>
-              <img src="assets/strofa2-versi.jpg" alt="Casa illuminata nella notte e nidi che dormono">
-              <figcaption>Quadro dei versi: il silenzio del paese e la casa ancora accesa.</figcaption>
-            </figure>
-            <figure class="reality reality-locked">
-              <img src="assets/strofa2-realta.jpg" alt="Simbolo della famiglia che si chiude nel proprio nido">
-              <figcaption>Quadro della realtà: il nido familiare chiuso all’esterno, da cui il poeta è escluso.</figcaption>
-            </figure>
-          </div>
-          <div id="analisi-strofa-2" class="stanza-analisi">
-            I nidi che dormono sotto le ali, come gli occhi sotto le ciglia,
-            costruiscono l’immagine di una protezione assoluta. La casa che “bisbiglia”
-            allude alla notte di nozze: un’intimità che il poeta può solo intuire da lontano.
-          </div>
-        </div>
-      </article>
+          <div id="video-container" hidden>
+            <div
+              style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;"
+            >
+              <iframe
+                src="https://app.heygen.com/embedded-player/921a340e480a48fa94d440855d633b4a"
+                title="HeyGen video player"
+                frameborder="0"
+                allow="encrypted-media; fullscreen;"
+                allowfullscreen
+                style="position:absolute; top:0; left:0; width:100%; height:100%;"
+              ></iframe>
+            </div>
 
-      <article class="stanza-card">
-        <div class="stanza-header">
-          <h3>Strofa 3 – Profumi e tombe</h3>
-          <button class="toggle-analisi" data-target="analisi-strofa-3">Mostra / nascondi analisi</button>
-        </div>
-        <div class="stanza-content">
-          <div class="stanza-text">
-            <p class="verse">Dai calici aperti si esala / l’odore di fragole rosse.</p>
-            <p class="verse">Splende un lume là nella sala. / Nasce l’erba sopra le fosse.</p>
+            <button id="btn-back-to-cover" class="back-btn" style="margin-top:0.5rem;">
+              ⏹ Torna all'immagine
+            </button>
           </div>
-          <div class="stanza-images">
-            <figure>
-              <img src="assets/strofa3-versi.jpg" alt="Gelsomini, luce nella sala, cimitero con erba che cresce">
-              <figcaption>Quadro dei versi: odori dolci, luce domestica e tombe sullo sfondo.</figcaption>
-            </figure>
-            <figure class="reality reality-locked">
-              <img src="assets/strofa3-realta.jpg" alt="Contrasto tra eros e morte">
-              <figcaption>Quadro della realtà: la vita che nasce accanto ai morti, il desiderio accanto al lutto.</figcaption>
-            </figure>
-          </div>
-          <div id="analisi-strofa-3" class="stanza-analisi">
-            Il profumo di fragole è sensuale, quasi corporeo; ma subito compare l’immagine delle fosse.
-            Eros e morte convivono nello sguardo di Pascoli: la notte di nozze avviene accanto al cimitero
-            della memoria familiare.
-          </div>
-        </div>
-      </article>
 
-      <!-- Le altre strofe possono essere completate nello stesso schema -->
-    </section>
+          <figcaption style="text-align:center; margin-top:0.5rem;">
+            Clicca l'immagine per avviare il video introduttivo.
+          </figcaption>
+        </figure>
 
-    <section id="simboli" class="section section-simboli">
-      <h2>Simboli principali</h2>
-      <p>
-        Nel <em>Gelsomino notturno</em> Pascoli è simbolista perché trasforma ogni immagine in un significato nascosto:
-        non descrive la realtà, la allude.
-      </p>
-      <div class="symbol-grid">
-        <article class="symbol-card">
-          <h3>Il nido</h3>
-          <p>
-            È il modello della famiglia perfetta, chiusa e protetta. Per il poeta, che vive ai margini,
-            diventa anche simbolo di esclusione e nostalgia.
-          </p>
-        </article>
-        <article class="symbol-card">
-          <h3>I fiori notturni</h3>
-          <p>
-            I petali che si aprono nella notte richiamano l’unione degli sposi e l’atto fecondativo.
-            La natura mette in scena ciò che il poeta non nomina.
-          </p>
-        </article>
-        <article class="symbol-card">
-          <h3>Le farfalle crepuscolari</h3>
-          <p>
-            Figure leggere sospese tra giorno e notte, tra innocenza e desiderio:
-            possono essere lette come anime dei morti o come pensieri inquieti.
-          </p>
-        </article>
-        <article class="symbol-card">
-          <h3>L’ape tardiva</h3>
-          <p>
-            L’ape che arriva tardi e trova le celle occupate è l’immagine del poeta escluso:
-            non c’è più posto per lui nel mondo della famiglia e della fecondità.
-          </p>
-        </article>
-        <article class="symbol-card">
-          <h3>La chioccia e i pulcini di stelle</h3>
-          <p>
-            Le Pleiadi diventano una chioccia che attraversa il cielo con i suoi piccoli:
-            è il modello cosmico del nido, una maternità perfetta e irraggiungibile.
-          </p>
-        </article>
-        <article class="symbol-card">
-          <h3>Il fiore all’alba</h3>
-          <p>
-            Il gelsomino si chiude “un poco gualcito” al mattino, ma dentro l’urna segreta
-            si cova una “felicità nuova”: la vita concepita nella notte.
-          </p>
-        </article>
+        <figure class="intro-image">
+          <img
+            id="pascoli-intro"
+            src="assets/Pascoli-intro.png"
+            alt="Giovanni Pascoli – immagine introduttiva"
+            style="max-width:260px; width:100%; height:auto; margin:1.5rem auto 0.5rem auto; cursor:pointer; display:block;"
+          />
+          <figcaption style="text-align:center;">
+            Giovanni Pascoli, tra biografia, visione del mondo e simboli.
+          </figcaption>
+        </figure>
+
       </div>
-    </section>
-
-    <section id="laboratorio" class="section section-lab">
-      <h2>Laboratorio per la classe</h2>
-      <ol>
-        <li>
-          <strong>Dittico visivo</strong>: scegli una strofa e disegna due immagini:
-          una che rappresenti i versi in modo letterale, una che rappresenti la “realtà”
-          psicologica nascosta dietro la scena.
-        </li>
-        <li>
-          <strong>Storyboard della notte</strong>: dividi la poesia in 6 fotogrammi e crea
-          una tavola in stile fumetto, usando le immagini di questa lezione come modello.
-        </li>
-        <li>
-          <strong>Mappa dei simboli</strong>: costruisci una mappa concettuale che colleghi
-          i simboli della poesia (nido, fiori, fragole, ape, chioccia, farfalle, fiore)
-          ai temi di famiglia, eros, morte, memoria.
-        </li>
-        <li>
-          <strong>Scrittura creativa</strong>: scrivi una breve scena in prosa in cui un personaggio
-          guarda da fuori una casa illuminata. Non dire mai esplicitamente cosa accade dentro:
-          fallo intuire attraverso dettagli della natura.
-        </li>
-      </ol>
-      <p class="lab-note">
-        La web app può essere usata in classe con la LIM oppure individualmente dagli studenti
-        per il ripasso: ogni sezione è pensata per collegare il testo ai suoi simboli visivi.
-      </p>
     </section>
   </main>
 
-  <footer class="site-footer">
-    Il gelsomino notturno – percorso interattivo per la didattica. Versione integrata per il progetto Libro.0.
-  </footer>
+  <!-- MODALE -->
+  <div id="modal-overlay" class="modal-overlay" hidden>
+    <div class="modal">
+      <button id="modal-close">✕</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <!-- SCRIPT IMMAGINE INGRANDITA -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const introImg = document.getElementById('pascoli-intro');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const modalContent = document.getElementById('modal-content');
+      const modalClose = document.getElementById('modal-close');
+
+      if (introImg) {
+        introImg.addEventListener('click', () => {
+          modalContent.innerHTML = '';
+          const wrapper = document.createElement('div');
+          wrapper.className = 'modal-center-wrapper';
+
+          const bigImg = introImg.cloneNode();
+          bigImg.removeAttribute('style');
+
+          wrapper.appendChild(bigImg);
+          modalContent.appendChild(wrapper);
+
+          modalOverlay.hidden = false;
+
+          const close = () => {
+            modalOverlay.hidden = true;
+            modalContent.innerHTML = '';
+          };
+
+          bigImg.addEventListener('click', close);
+          modalClose.addEventListener('click', close, { once: true });
+          modalOverlay.addEventListener('click', e => {
+            if (e.target === modalOverlay) close();
+          }, { once: true });
+        });
+      }
+    });
+  </script>
 </body>
 </html>
