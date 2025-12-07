@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+/* Valori di default (verranno sovrascritti dai temi) */
 body {
   margin: 0;
   min-height: 100vh;
@@ -41,7 +42,7 @@ body.theme-A {
 /* Tema B – Cartaceo quaderno */
 body.theme-B {
   --bg-body: #faf7ee;
-  --bg-page: #fff;
+  --bg-page: #ffffff;
   --bg-sidebar: #fdf8f0;
   --bg-margin: #fffaf4;
   --text-main: #222222;
@@ -521,6 +522,26 @@ body.theme-D .section-nav a {
   background: transparent;
   font-size: 1.1rem;
   cursor: pointer;
+}
+
+/* ====== LIGHTBOX IMMAGINI ====== */
+
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  cursor: zoom-out;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90vh;
+  border-radius: 12px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
 }
 
 /* ====== Responsivo ====== */
