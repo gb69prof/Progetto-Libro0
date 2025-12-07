@@ -55,15 +55,19 @@
       </div>
 
       <div class="intro-media">
+        <!-- Copertina video Pascoli: immagine ridotta + click per aprire il video -->
         <figure class="video-cover-wrapper">
           <img
             id="pascoli-cover"
+            class="pascoli-cover-img"
             src="assets/pascoli_video.png"
             alt="Introduzione a Pascoli"
+            style="max-width: 260px; width: 100%; height: auto; cursor: pointer; display: block; margin: 0 auto;"
           />
           <figcaption>Clicca l'immagine per avviare il video introduttivo.</figcaption>
         </figure>
 
+        <!-- Contenitore video che viene mostrato al click (gestito da script-index.js) -->
         <div id="video-container" class="video-container" hidden>
           <div class="responsive-iframe">
             <iframe
@@ -77,14 +81,21 @@
           <button id="btn-back-to-cover" class="back-btn">⏹ Torna all'immagine</button>
         </div>
 
+        <!-- Immagine introduttiva di Pascoli (schema / immagine affiancata al testo) -->
         <figure class="intro-image">
-          <img src="assets/Pascoli-intro.png" alt="Giovanni Pascoli – immagine introduttiva" />
-          <figcaption>Giovanni Pascoli, tra biografia, visione del mondo e simboli.</figcaption>
+          <img
+            src="assets/Pascoli-intro.png"
+            alt="Giovanni Pascoli – immagine introduttiva"
+          />
+          <figcaption>
+            Giovanni Pascoli, tra biografia, visione del mondo e simboli.
+          </figcaption>
         </figure>
       </div>
     </section>
   </main>
 
+  <!-- Overlay modale generale, riutilizzabile anche per ingrandire immagini -->
   <div id="modal-overlay" class="modal-overlay" hidden>
     <div class="modal">
       <button class="modal-close" id="modal-close">✕</button>
