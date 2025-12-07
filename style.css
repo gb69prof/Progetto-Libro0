@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-/* Valori di default (verranno sovrascritti dai temi) */
+/* Valori di base (poi i temi li sovrascrivono) */
 body {
   margin: 0;
   min-height: 100vh;
@@ -283,7 +283,7 @@ body.theme-D .top-bar {
 .section-subtitle {
   margin: 0.2rem 0 0;
   font-size: 0.85rem;
-  color: rgba(0, 0, 0, 0.6);
+  opacity: 0.7;
 }
 
 /* Colonna testo – vera “pagina libro” */
@@ -321,6 +321,7 @@ body.theme-D .top-bar {
   font-size: 0.85rem;
 }
 
+/* Carta per schema + didascalia */
 .schema-card {
   border-radius: 14px;
   border: 1px solid var(--border-soft);
@@ -329,15 +330,23 @@ body.theme-D .top-bar {
   margin-bottom: 0.8rem;
 }
 
-.schema-card img {
-  width: 100%;
-  display: block;
+/* Figcaption come blocco di testo */
+.schema-card figcaption {
+  padding: 0.6rem 0.7rem 0.7rem;
+  font-size: 0.8rem;
+  background: #f8f4ee;
+  line-height: 1.5;
 }
 
-.schema-card figcaption {
-  padding: 0.45rem 0.6rem;
-  font-size: 0.78rem;
-  background: #f8f4ee;
+/* Immagine avvolta dal testo (standard libro) */
+.img-wrap {
+  float: left;
+  width: 48%;
+  max-width: 240px;
+  margin: 0 0.8rem 0.6rem 0;
+  border-radius: 12px;
+  shape-outside: inset(0 round 12px);
+  shape-margin: 8px;
 }
 
 /* Navigazione sezione precedente/successiva */
@@ -453,6 +462,8 @@ body.theme-D .section-nav a {
   font-size: 0.78rem;
   cursor: pointer;
 }
+
+/* “Invia a…” */
 
 .margin-actions {
   display: flex;
@@ -570,4 +581,3 @@ body.theme-D .section-nav a {
     left: 36px;
   }
 }
-
