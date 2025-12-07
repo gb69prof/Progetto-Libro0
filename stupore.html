@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <title>Pascoli – Lo stupore</title>
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Stile locale per ridurre l'immagine della sezione Stupore -->
+  <style>
+    .hero-figure {
+      max-width: 500px;
+      margin: 1rem auto 0.8rem; /* la stringo e la centro */
+    }
+    .hero-figure img {
+      display: block;
+      max-height: 360px;      /* altezza massima per farla entrare tutta */
+      width: auto;            /* mantiene le proporzioni */
+      margin: 0 auto;
+      object-fit: contain;    /* non taglia l'immagine */
+    }
+  </style>
+
   <script defer src="script-common.js"></script>
 </head>
 <body data-section="stupore">
@@ -103,7 +119,7 @@
         </section>
 
         <section class="lesson-gallery">
-          <!-- In questa sezione puoi aggiungere, se vuoi, altre immagini dedicate allo stupore. -->
+          <!-- Qui puoi aggiungere, se vuoi, altre immagini dedicate allo stupore. -->
         </section>
 
         <nav class="section-nav">
@@ -160,3 +176,4 @@
   </div>
 </body>
 </html>
+
