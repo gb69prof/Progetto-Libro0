@@ -24,11 +24,10 @@
       width: 100%;
       height: 100%;
       position: relative;
-      background: transparent;   /* niente riquadro chiaro */
+      background: transparent;
       box-shadow: none;
     }
 
-    /* wrapper che centra l'immagine ingrandita */
     .modal-center-wrapper {
       width: 100%;
       height: 100%;
@@ -38,7 +37,6 @@
     }
 
     .modal-center-wrapper img {
-      /* FORZO l’immagine a riempire lo schermo quasi del tutto */
       width: 90vw;
       max-width: 90vw;
       max-height: 90vh;
@@ -48,7 +46,6 @@
       cursor: pointer;
     }
 
-    /* pulsante X in alto a destra */
     #modal-close {
       position: absolute;
       top: 16px;
@@ -88,7 +85,8 @@
 
   <main class="intro-main">
     <section class="intro-hero">
-      <!-- Colonna testo -->
+
+      <!-- COLONNA SINISTRA -->
       <div class="intro-text">
         <h1>Giovanni Pascoli nel Libro.0</h1>
 
@@ -100,8 +98,7 @@
 
         <p>
           Puoi leggere i testi, evidenziare, prendere appunti, inviare concetti alle mappe,
-          alla timeline o alla lavagna virtuale. Ogni gesto lascia traccia in una memoria lunga,
-          che resta tua.
+          alla timeline o alla lavagna virtuale. Ogni gesto lascia traccia in una memoria lunga.
         </p>
 
         <h2>Capitoli di Pascoli</h2>
@@ -113,20 +110,20 @@
           <li><a href="simbolismo.html">5 · Il simbolismo</a></li>
         </ol>
 
-        <!-- NUOVA SEZIONE: I testi -->
+        <!-- SEZIONE NUOVA -->
         <h2>I testi</h2>
         <ul class="chapter-list intro-list">
           <li>
-            <a href="gelsomino/gitkeep/index.html" target="_blank">
+            <a href="gelsomino/index.html" target="_blank">
               Il gelsomino notturno – lezione interattiva
             </a>
           </li>
         </ul>
       </div>
 
-      <!-- Colonna media -->
+      <!-- COLONNA DESTRA -->
       <div class="intro-media">
-        <!-- Copertina + video nello stesso spazio -->
+
         <figure class="video-cover-wrapper" style="max-width:260px; margin:0 auto;">
           <div id="cover-wrapper">
             <img
@@ -137,7 +134,6 @@
             />
           </div>
 
-          <!-- Il video viene gestito da script-index.js, mantenendo stessa posizione/dimensione -->
           <div id="video-container" hidden>
             <div
               style="position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:12px;"
@@ -162,7 +158,6 @@
           </figcaption>
         </figure>
 
-        <!-- Seconda immagine: piccola nella pagina, grande a schermo intero al click -->
         <figure class="intro-image">
           <img
             id="pascoli-intro"
@@ -174,11 +169,12 @@
             Giovanni Pascoli, tra biografia, visione del mondo e simboli.
           </figcaption>
         </figure>
+
       </div>
     </section>
   </main>
 
-  <!-- Modale generale -->
+  <!-- MODALE -->
   <div id="modal-overlay" class="modal-overlay" hidden>
     <div class="modal">
       <button id="modal-close">✕</button>
@@ -186,7 +182,7 @@
     </div>
   </div>
 
-  <!-- Script per zoom dell'immagine Pascoli-intro -->
+  <!-- SCRIPT IMMAGINE INGRANDITA -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const introImg = document.getElementById('pascoli-intro');
@@ -194,50 +190,30 @@
       const modalContent = document.getElementById('modal-content');
       const modalClose = document.getElementById('modal-close');
 
-      if (introImg && modalOverlay && modalContent && modalClose) {
+      if (introImg) {
         introImg.addEventListener('click', () => {
-          // svuota il contenuto precedente
           modalContent.innerHTML = '';
-
-          // wrapper che centra l'immagine
           const wrapper = document.createElement('div');
           wrapper.className = 'modal-center-wrapper';
 
-          // clono l'immagine ma SENZA lo stile piccolo: la gestiamo da CSS
           const bigImg = introImg.cloneNode();
-          bigImg.removeAttribute('style'); // togliamo max-width:260px ecc.
+          bigImg.removeAttribute('style');
 
           wrapper.appendChild(bigImg);
           modalContent.appendChild(wrapper);
+
           modalOverlay.hidden = false;
 
-          const closeModal = () => {
+          const close = () => {
             modalOverlay.hidden = true;
             modalContent.innerHTML = '';
           };
 
-          // clic sull'immagine grande
-          bigImg.addEventListener('click', closeModal);
-
-          // clic sullo sfondo scuro
-          modalOverlay.addEventListener(
-            'click',
-            (e) => {
-              if (e.target === modalOverlay) {
-                closeModal();
-              }
-            },
-            { once: true }
-          );
-
-          // pulsante X
-          modalClose.addEventListener(
-            'click',
-            () => {
-              closeModal();
-            },
-            { once: true }
-          );
+          bigImg.addEventListener('click', close);
+          modalClose.addEventListener('click', close, { once: true });
+          modalOverlay.addEventListener('click', e => {
+            if (e.target === modalOverlay) close();
+          }, { once: true });
         });
       }
     });
