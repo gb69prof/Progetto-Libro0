@@ -616,3 +616,46 @@ body.theme-E {
         grid-template-columns: minmax(0, 1fr);
     }
 }
+/* --- NAVBAR LIBRO.0 --- */
+
+.navbar-libro0 {
+  width: 100%;
+  background: #1e1e1e;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.navbar-libro0 .nav-logo a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.navbar-libro0 .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-libro0 .nav-links li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.navbar-libro0 .nav-links li a:hover {
+  background: #444;
+}
+
