@@ -1,0 +1,83 @@
+/* --- TEMI LIBRO.0 --- */
+
+/* Tema A – Editoriale (pulito, crema, serif) */
+.theme-A {
+  --bg-color: #f7f3e8;
+  --text-color: #2c2c2c;
+  --accent-color: #8a6d46;
+  --font-family: "Georgia", serif;
+}
+
+/* Tema B – Cartaceo-evoluto (righe, margine rosso) */
+.theme-B {
+  --bg-color: #fffefd;
+  --text-color: #1f1f1f;
+  --accent-color: #d80000;
+  --font-family: "Times New Roman", serif;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 22px,
+    rgba(0,0,0,0.07) 23px
+  );
+}
+
+/* Tema C – Tech (app moderna blu-violetto) */
+.theme-C {
+  --bg-color: #12121c;
+  --text-color: #ffffff;
+  --accent-color: #7a5cff;
+  --font-family: "Poppins", sans-serif;
+}
+
+/* Tema D – Notte */
+.theme-D {
+  --bg-color: #0b0b0b;
+  --text-color: #d6d6d6;
+  --accent-color: #4eaaff;
+  --font-family: "Roboto", sans-serif;
+}
+
+/* Tema E – Ibrido */
+.theme-E {
+  --bg-color: #f8f8f8;
+  --text-color: #262626;
+  --accent-color: #5566dd;
+  --font-family: "Merriweather", serif;
+}
+
+/* Applicazione dei valori */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-family);
+}
+
+/* Widget selettore temi */
+.theme-selector {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.theme-selector button {
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.theme-selector button:hover {
+  opacity: 0.8;
+}
