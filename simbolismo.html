@@ -3,11 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <title>Pascoli – Il simbolismo</title>
+
   <link rel="stylesheet" href="style.css" />
+  <!-- Sistema temi globale -->
+  <link rel="stylesheet" href="themes.css">
+  <script src="themes.js" defer></script>
+
   <script defer src="script-common.js"></script>
 </head>
 
 <body data-section="simbolismo">
+
+  <!-- NAVBAR LIBRO.0 -->
+  <nav class="navbar-libro0">
+    <div class="nav-logo">
+      <a href="index.html">📘 Libro.0</a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="lettura.html">Lettura</a></li>
+      <li><a href="annota.html">Annota</a></li>
+      <li><a href="mappe.html">Mappe</a></li>
+      <li><a href="lavagna.html">Lavagna</a></li>
+      <li><a href="timeline.html">Timeline</a></li>
+      <li><a href="archivio.html">Archivio</a></li>
+      <li><a href="crea.html">Crea</a></li>
+      <li><a href="ricerca.html">Ricerca</a></li>
+    </ul>
+  </nav>
+
   <header class="top-bar">
     <div class="logo-area">
       <a href="index.html" class="logo-main">Libro.0</a>
@@ -57,10 +81,20 @@
 
               <p><strong>IL SIMBOLISMO PASCOLIANO</strong></p>
 
-              <!-- Testo completo importato -->
-              <p>Per Pascoli la realtà non esiste di per sé, ma nasce nello sguardo del poeta. Le cose non sono solo materiali: diventano simboli che incarnano significati interiori. Così il nido non è solo intreccio di rami, ma immagine della famiglia perduta e rifugio degli affetti; la siepe è barriera che protegge l’intimità domestica; la digitale purpurea rappresenta il sesso, visto con gli occhi turbati del fanciullino. Ogni oggetto è caricato di valore morale e affettivo: la poesia diventa il luogo in cui il mistero delle cose si rivela.</p>
+              <p>
+                Per Pascoli la realtà non esiste di per sé, ma nasce nello sguardo del poeta.
+                Le cose non sono solo materiali: diventano simboli che incarnano significati interiori.
+                Così il nido non è solo intreccio di rami, ma immagine della famiglia perduta e rifugio
+                degli affetti; la siepe è barriera che protegge l’intimità domestica; la digitale purpurea
+                rappresenta il sesso, visto con gli occhi turbati del fanciullino. Ogni oggetto è caricato
+                di valore morale e affettivo: la poesia diventa il luogo in cui il mistero delle cose si rivela.
+              </p>
 
-              <p>Pascoli, poeta delle piccole cose, attribuisce agli oggetti quotidiani un’anima, trasformandoli in simboli universali. Questa prospettiva lo avvicina al Simbolismo europeo e apre la strada alla poesia del Novecento.</p>
+              <p>
+                Pascoli, poeta delle piccole cose, attribuisce agli oggetti quotidiani un’anima,
+                trasformandoli in simboli universali. Questa prospettiva lo avvicina al Simbolismo europeo
+                e apre la strada alla poesia del Novecento.
+              </p>
 
               <h3>Schema sintetico</h3>
               <ul>
@@ -125,12 +159,16 @@
     <!-- Margine attivo -->
     <aside class="margin-column">
       <h2>Margine attivo</h2>
-      <p class="current-section-label">Sezione attuale: <span id="current-section-name"></span></p>
+      <p class="current-section-label">
+        Sezione attuale: <span id="current-section-name"></span>
+      </p>
 
       <div class="margin-block">
         <h3>Evidenzia</h3>
         <button id="btn-highlight" class="margin-btn">Evidenzia selezione</button>
-        <button id="btn-clear-highlights" class="margin-btn margin-btn-secondary">Pulisci evidenziazioni</button>
+        <button id="btn-clear-highlights" class="margin-btn margin-btn-secondary">
+          Pulisci evidenziazioni
+        </button>
       </div>
 
       <div class="margin-block">
