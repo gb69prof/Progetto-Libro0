@@ -1,0 +1,206 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f7f3e9;
+  padding-left: 220px;  /* spazio per l'immagine sinistra */
+  padding-right: 220px; /* spazio per l'immagine destra */
+}
+
+.side-image {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.1);
+  opacity: 0.95;
+}
+
+.side-image.left {
+  left: 0;
+}
+
+.side-image.right {
+  right: 0;
+  transform: scaleX(-1); /* effetto specchio */
+}
+
+.page-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  background-color: rgba(255, 255, 250, 0.92);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+}
+
+.top-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.top-section h1 {
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.top-section h1 span {
+  color: #b02834;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-style: italic;
+  color: #555;
+}
+
+/* indice orizzontale */
+
+.horizontal-index {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 16px 0 18px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: #f0e3cf;
+  border: 1px solid #d4c1a2;
+}
+
+.horizontal-index a {
+  font-size: 0.83rem;
+  text-decoration: none;
+  color: #5a3218;
+  padding: 4px 10px;
+  border-radius: 999px;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  white-space: nowrap;
+}
+
+.horizontal-index a:hover {
+  background: #b02834;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* schema */
+
+.schema-figure {
+  margin: 14px auto 26px;
+  text-align: center;
+}
+
+.schema-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.schema-figure figcaption {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+}
+
+/* sezioni lezione */
+
+.lesson-section {
+  margin-bottom: 26px;
+}
+
+.lesson-section h2 {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  color: #7b1f2a;
+}
+
+.lesson-section h3 {
+  font-size: 1rem;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #5a3218;
+}
+
+.lesson-section p {
+  margin-bottom: 8px;
+  text-align: justify;
+}
+
+.lesson-section ul {
+  margin-left: 1.2rem;
+  margin-top: 4px;
+}
+
+.lesson-section li {
+  margin-bottom: 4px;
+}
+
+blockquote {
+  margin: 6px 0 10px;
+  padding-left: 14px;
+  border-left: 3px solid #b02834;
+  font-style: italic;
+  color: #444;
+}
+
+.highlight {
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: #fde7e2;
+  border: 1px solid #f2b4a4;
+}
+
+/* footer */
+
+.page-footer {
+  margin-top: 24px;
+  padding-top: 12px;
+  border-top: 1px solid #dcc9aa;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+/* responsivo */
+
+@media (max-width: 1000px) {
+  body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .side-image {
+    display: none;
+  }
+
+  .page-wrapper {
+    margin: 0;
+    border-radius: 0;
+  }
+}
